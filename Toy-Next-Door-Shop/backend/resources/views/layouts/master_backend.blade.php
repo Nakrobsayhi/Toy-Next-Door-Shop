@@ -21,7 +21,7 @@ Coded by www.creative-tim.com
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Patida Dashboard
+        Toy Next Door shop
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -90,7 +90,7 @@ Coded by www.creative-tim.com
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Patida Baking House Dashbaord</a>
+                        <a class="navbar-brand" href="javascript:;">Toy Next Door Shop Dashbaord</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

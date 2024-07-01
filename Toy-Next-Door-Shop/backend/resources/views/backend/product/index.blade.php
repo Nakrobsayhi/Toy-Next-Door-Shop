@@ -34,7 +34,6 @@
                                         alt="Product Image">
                                     <div class="product-detail">
                                         <strong>{{ $product->name }}</strong>
-                                        <p>{{ $product->description }}</p>
                                     </div>
                                 </td>
                                 <td class="product-details">{{ $product->cat->name}}</td>
