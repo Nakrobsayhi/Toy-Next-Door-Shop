@@ -56,3 +56,5 @@ Route::post('admin/product/insert',[ProductController::class, 'insert']);
 route::post('admin/product/update/{id}',[ProductController::class, 'update']);
 route::get('admin/product/delete/{id}',[ProductController::class, 'delete']);
 route::get('admin/product/menu',[ProductController::class,  'menu']);
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

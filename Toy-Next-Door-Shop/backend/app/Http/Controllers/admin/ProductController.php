@@ -10,8 +10,10 @@ use File;
 use Image;
 use Illuminate\Support\Str;
 
+
 class ProductController extends Controller
 {
+    
     public function index()
     {
         $p = Product::orderBy('product_id', 'desc')->Paginate(4);
@@ -130,4 +132,5 @@ class ProductController extends Controller
     public function menu() {
         $prod = product::all();
     }
+    
 }

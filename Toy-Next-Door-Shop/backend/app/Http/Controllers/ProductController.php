@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+    
 
 class ProductController extends Controller
 {
@@ -37,4 +38,5 @@ class ProductController extends Controller
         Product::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
+    
 }
