@@ -1,6 +1,7 @@
 async function fetchAndDisplayProducts() {
     const API_BASE_URL = "http://localhost:8000/api";
     const productList = document.getElementById("product-list");
+    const productList2 = document.getElementById("product-list2"); // New product list container
 
     try {
         const response = await fetch(`${API_BASE_URL}/products`);
@@ -9,9 +10,11 @@ async function fetchAndDisplayProducts() {
         }
         const products = await response.json();
 
+        // Clear existing lists
         productList.innerHTML = "";
+        productList2.innerHTML = "";
 
-        // Display products on the frontend
+        // Iterate through products
         products.forEach((product) => {
             const productContainer = document.createElement("div");
             productContainer.classList.add("product-item");
@@ -45,26 +48,6 @@ async function fetchAndDisplayProducts() {
             productName.style.textTransform = "uppercase";
             productContainer.appendChild(productName);
 
-            // Product Category (show only on product.html)
-            if (window.location.pathname.includes("product.html")) {
-                if (product.cat) {
-                    const productCategory = document.createElement("p");
-                    productCategory.textContent = `Category: ${product.cat.name}`;
-                    productContainer.appendChild(productCategory);
-                } else {
-                    const productCategory = document.createElement("p");
-                    productCategory.textContent = "Category: Not specified";
-                    productContainer.appendChild(productCategory);
-                }
-            }
-
-            // Product Description (show only on product.html)
-            if (window.location.pathname.includes("product.html")) {
-                const productDescription = document.createElement("p");
-                productDescription.textContent = product.description;
-                productContainer.appendChild(productDescription);
-            }
-
             // Product Price
             const productPrice = document.createElement("p");
             productPrice.textContent = `${product.price.toLocaleString()} บาท`;
@@ -72,8 +55,22 @@ async function fetchAndDisplayProducts() {
             productPrice.style.color = "#00a2ff";
             productContainer.appendChild(productPrice);
 
-            // Append product container to product list
-            productList.appendChild(productContainer);
+            // Product Stock (only on product.html)
+            if (window.location.pathname.includes("product.html")) {
+                const productStock = document.createElement("p");
+                productStock.textContent = `${product.stock} in stock`;
+                productContainer.appendChild(productStock);
+            }
+
+            // Determine which list to append based on category
+            if (product.cat && product.cat.name === "Model Kits") {
+                productList.appendChild(productContainer);
+            } else if (product.cat && product.cat.name === "Figurines") {
+                productList2.appendChild(productContainer);
+            } else {
+                // Handle products without category or unknown category
+                productList.appendChild(productContainer);
+            }
         });
     } catch (error) {
         console.error("Error fetching products:", error);

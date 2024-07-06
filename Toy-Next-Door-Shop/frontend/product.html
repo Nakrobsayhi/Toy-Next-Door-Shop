@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
     <!-- script
     ================================================== -->
@@ -212,11 +212,11 @@
                                     </svg>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <div id="product-price"></div>
                         <hr>
                         <div class="row">
-                            <div class="stock-number">2 In Stock</div><br><br>
+                            <div id="product-stock"></div>
                             <div class="col-md-4">
                                 <!-- Your existing content for the left section -->
                                 <div class="stock-number">Quantity</div>
@@ -258,7 +258,9 @@
                     <div class="table-container">
                         <div class="table-row lineTR">
                             <div class="table-cell">Chat with us</div>
-                            <div class="table-cell">Facebook</div>
+                            <div class="table-cell"><a href=""><img
+                                        src="https://freepnglogo.com/images/all_img/1713419057Facebook_PNG.png"
+                                        width="15%" alt=""></a></div>
                         </div>
                         <div class="table-row lineTR">
                             <div class="table-cell barTD top">Category</div>
@@ -716,6 +718,7 @@
             const productPriceContainer = document.getElementById("product-price");
             const productCategoryContainer = document.getElementById("product-category");
             const productDescriptionContainer = document.getElementById("product-desc");
+            const productStockContainer = document.getElementById("product-stock");
             const productData = localStorage.getItem("selectedProduct");
 
             if (productData) {
@@ -758,7 +761,7 @@
 
                 // Create and append product image
                 const productImage = document.createElement("img");
-                productImage.src = product.image;
+                productImage.src = `http://localhost:8000/backend/product/${product.image}`;
                 productImage.alt = product.name;
                 productImage.style.width = "90%"; // Set width
                 productImgContainer.appendChild(productImage);
@@ -767,6 +770,8 @@
                 if (product.description) {
                     const productDescriptionHeader = document.createElement("p");
                     productDescriptionHeader.textContent = "Product Description";
+                    productDescriptionHeader.style.color = "black";
+                    productDescriptionHeader.style.textTransform = "uppercase";
                     productDescriptionHeader.style.fontWeight = "bold";
                     productDescriptionContainer.appendChild(productDescriptionHeader);
 
@@ -777,6 +782,11 @@
                         productDescriptionContainer.appendChild(productDescriptionLine);
                     });
                 }
+
+                const productStock = document.createElement("p");
+                productStock.textContent = `${product.stock} in stock`;
+                productStock.style.color = "gray";
+                productStockContainer.appendChild(productStock);
             }
         });
     </script>

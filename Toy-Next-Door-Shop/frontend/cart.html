@@ -81,7 +81,6 @@
                 d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
         </symbol>
     </svg>
-
     <div class="search-popup">
         <div class="search-popup-container">
 
@@ -148,23 +147,52 @@
                         <ul id="navbar"
                             class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link me-4 active" href="index.html">Home</a>
+                                <a class="nav-link me-4 active" href="#billboard">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#company-services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#mobile-products">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#smart-watches">Watches</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#yearly-sale">Sale</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#latest-blog">Blog</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#"
-                                    role="button" aria-expanded="false">Products</a>
+                                    role="button" aria-expanded="false">Pages</a>
                                 <ul class="dropdown-menu">
-
                                     <li>
-                                        <a href="shop.html" class="dropdown-item">model kits</a>
+                                        <a href="about.html" class="dropdown-item">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html" class="dropdown-item">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop.html" class="dropdown-item">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="cart.html" class="dropdown-item">Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                    </li>
+                                    <li>
+                                        <a href="single-post.html" class="dropdown-item">Single Post</a>
+                                    </li>
+                                    <li>
+                                        <a href="single-product.html" class="dropdown-item">Single Product</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="dropdown-item">Contact</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link me-4" href="#mobile-products">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link me-4" href="#mobile-products">Contact</a>
                             </li>
                             <li class="nav-item">
                                 <div class="user-items ps-5">
@@ -199,124 +227,130 @@
             </div>
         </nav>
     </header>
-
     <section class="hero-section position-relative bg-light-blue padding-medium">
         <div class="hero-content">
             <div class="container">
                 <div class="row">
                     <div class="text-center padding-large no-padding-bottom">
-                        <h1 class="display-2 text-uppercase text-dark">Shop</h1>
+                        <h1 class="display-2 text-uppercase text-dark">Cart</h1>
                         <div class="breadcrumbs">
                             <span class="item">
                                 <a href="index.html">Home ></a>
                             </span>
-                            <span class="item">Shop</span>
+                            <span class="item">Cart</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="shopify-grid padding-large">
+    <section class="shopify-cart padding-large">
         <div class="container">
             <div class="row">
-                <main class="col-md-9">
-                    <div class="filter-shop d-flex justify-content-between">
-                        <div class="showing-product">
-                            <p>Showing 1–9 of 55 results</p>
-                        </div>
-                        <div class="sort-by">
-                            <select id="input-sort" class="form-control" data-filter-sort="" data-filter-order="">
-                                <option value="">Default sorting</option>
-                                <option value="">Name (A - Z)</option>
-                                <option value="">Name (Z - A)</option>
-                                <option value="">Price (Low-High)</option>
-                                <option value="">Price (High-Low)</option>
-                                <option value="">Rating (Highest)</option>
-                                <option value="">Rating (Lowest)</option>
-                                <option value="">Model (A - Z)</option>
-                                <option value="">Model (Z - A)</option>
-                            </select>
+                <div class="cart-table">
+                    <div class="cart-header">
+                        <div class="row d-flex text-uppercase">
+                            <h3 class="cart-title col-lg-4 pb-3">Product</h3>
+                            <h3 class="cart-title col-lg-3 pb-3">Quantity</h3>
+                            <h3 class="cart-title col-lg-4 pb-3">Subtotal</h3>
                         </div>
                     </div>
-                    <div class="swiper product-swiper">
-                        <div class="swiper-wrapper" id="product-list">
-                          <!-- Products will be dynamically added here as swiper slides -->
-                        </div>
-                    <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-                        <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-                            <a href="#">
-                                <svg class="chevron-left pe-3">
-                                    <use xlink:href="#chevron-left"></use>
-                                </svg>
-                            </a>
-                            <span aria-current="page" class="page-numbers current pe-3">1</span>
-                            <a class="page-numbers pe-3" href="#">2</a>
-                            <a class="page-numbers pe-3" href="#">3</a>
-                            <a class="page-numbers pe-3" href="#">4</a>
-                            <a class="page-numbers" href="#">5</a>
-                            <a href="#">
-                                <svg class="chevron-right ps-3">
-                                    <use xlink:href="#chevron-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </nav>
-                </main>
-                <aside class="col-md-3">
-                    <div class="sidebar">
-                        <div class="widget-menu">
-                            <div class="widget-search-bar">
-                                <form role="search" method="get" class="d-flex">
-                                    <input class="search-field" placeholder="Search" type="search">
-                                    <div class="search-icon bg-dark">
-                                        <a href="#">
-                                            <svg class="search text-light">
-                                                <use xlink:href="#search"></use>
-                                            </svg>
-                                        </a>
+                    <div class="cart-item border-top border-bottom padding-small">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-md-3">
+                                <div class="cart-info d-flex flex-wrap align-items-center mb-4">
+                                    <div class="col-lg-5">
+                                        <div class="card-image">
+                                            <img src="images/cart-item2.jpg" alt="cloth" class="img-fluid">
+                                        </div>
                                     </div>
-                                </form>
+                                    <div class="col-lg-4">
+                                        <div class="card-detail">
+                                            <h3 class="card-title text-uppercase">
+                                                <a href="#">Pink watch</a>
+                                            </h3>
+                                            <div class="card-price">
+                                                <span class="money text-primary"
+                                                    data-currency-usd="$1200.00">$870.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-7">
+                                <div class="row d-flex">
+                                    <div class="col-lg-6">
+                                        <div class="qty-field">
+                                            <div class="qty-number d-flex">
+                                                <div class="quntity-button incriment-button">+</div>
+                                                <input class="spin-number-output bg-light no-margin" type="text"
+                                                    readonly="" value="0">
+                                                <div class="quntity-button decriment-button">-</div>
+                                            </div>
+                                            <div class="regular-price"></div>
+                                            <div class="quantity-output text-center bg-primary"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="total-price">
+                                            <span class="money text-primary">$870.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-2">
+                                <div class="cart-remove">
+                                    <a href="#">
+                                        <svg class="close" width="38px">
+                                            <use xlink:href="#close"></use>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="widget-product-categories pt-5">
-                            <h5 class="widget-title text-decoration-underline text-uppercase">Categories</h5>
-                            <ul class="product-categories sidebar-list list-unstyled">
-                                <li class="cat-item">
-                                    <a href="/collections/categories">All</a>
-                                </li>
-                                <li class="cat-item">
-                                    <a href="">Phones</a>
-                                </li>
-                                <li class="cat-item">
-                                    <a href="">Accessories</a>
-                                </li>
-                                <li class="cat-item">
-                                    <a href="">Tablets</a>
-                                </li>
-                                <li class="cat-item">
-                                    <a href="">Watches</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="widget-price-filter pt-3">
-                            <h5 class="widget-titlewidget-title text-decoration-underline text-uppercase">Filter By
-                                Price</h5>
-                            <ul class="product-tags sidebar-list list-unstyled">
-                                <li class="tags-item">
-                                    <a href="">Less than $10</a>
-                                </li>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
-                </aside>
+                </div>
+                <div class="cart-totals bg-grey padding-medium">
+                    <h2 class="display-7 text-uppercase text-dark pb-4">Cart Totals</h2>
+                    <div class="total-price pb-5">
+                        <table cellspacing="0" class="table text-uppercase">
+                            <tbody>
+                                <tr class="subtotal pt-2 pb-2 border-top border-bottom">
+                                    <th>Subtotal</th>
+                                    <td data-title="Subtotal">
+                                        <span class="price-amount amount text-primary ps-5">
+                                            <bdi>
+                                                <span class="price-currency-symbol">$</span>2,370.00
+                                            </bdi>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="order-total pt-2 pb-2 border-bottom">
+                                    <th>Total</th>
+                                    <td data-title="Total">
+                                        <span class="price-amount amount text-primary ps-5">
+                                            <bdi>
+                                                <span class="price-currency-symbol">$</span>2,370.00</bdi>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="button-wrap">
+                        <button class="btn btn-black btn-medium text-uppercase me-2 mb-3 btn-rounded-none">Update
+                            Cart</button>
+                        <button class="btn btn-black btn-medium text-uppercase me-2 mb-3 btn-rounded-none">Continue
+                            Shopping</button>
+                        <button class="btn btn-black btn-medium text-uppercase mb-3 btn-rounded-none">Proceed to
+                            checkout</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <section id="instagram" class="padding-large overflow-hidden no-padding-top">
+    </section>
+    
+    <section id="instagram" class="padding-large overflow-hidden">
         <div class="container">
             <div class="row">
                 <div class="display-header text-uppercase text-dark text-center pb-3">
