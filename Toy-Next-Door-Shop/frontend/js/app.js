@@ -1,7 +1,7 @@
 async function fetchAndDisplayProducts() {
     const API_BASE_URL = "http://localhost:8000/api";
     const productList = document.getElementById("product-list");
-    const productList2 = document.getElementById("product-list2"); // New product list container
+    const productList2 = document.getElementById("product-list2");
 
     try {
         const response = await fetch(`${API_BASE_URL}/products`);
@@ -58,14 +58,14 @@ async function fetchAndDisplayProducts() {
             // Product Stock (only on product.html)
             if (window.location.pathname.includes("product.html")) {
                 const productStock = document.createElement("p");
-                productStock.textContent = `${product.stock} in stock`;
+                productStock.textContent = `${product.amount} in stock`;
                 productContainer.appendChild(productStock);
             }
 
             // Determine which list to append based on category
-            if (product.cat && product.cat.name === "Model Kits") {
+            if (product.cat && product.cat.name === "Model kit") {
                 productList.appendChild(productContainer);
-            } else if (product.cat && product.cat.name === "Figurines") {
+            } else if (product.cat && product.cat.name === "Figurine") {
                 productList2.appendChild(productContainer);
             } else {
                 // Handle products without category or unknown category
