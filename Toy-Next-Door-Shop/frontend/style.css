@@ -699,7 +699,7 @@ h3.cart-title {
   #billboard .image-holder {
     margin-top: 0;
     opacity: 0.3;
-    max-height: 50vh; /* Adjust for mobile */
+    max-height: 10vh; /* Adjust for mobile */
   }
   #billboard .swiper-arrow {
     top: 50%; /* Adjust arrows to be vertically centered */
