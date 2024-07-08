@@ -28,14 +28,6 @@
                     <div class="sort-by">
                         <select id="input-sort" class="form-control" data-filter-sort="" data-filter-order="">
                             <option value="">Default sorting</option>
-                            <option value="">Name (A - Z)</option>
-                            <option value="">Name (Z - A)</option>
-                            <option value="">Price (Low-High)</option>
-                            <option value="">Price (High-Low)</option>
-                            <option value="">Rating (Highest)</option>
-                            <option value="">Rating (Lowest)</option>
-                            <option value="">Model (A - Z)</option>
-                            <option value="">Model (Z - A)</option>
                         </select>
                     </div>
                 </div>
@@ -43,29 +35,7 @@
                     <div class="swiper-wrapper" id="product-list">
                         <!-- Products will be dynamically added here as swiper slides -->
                     </div>
-                    <div class="swiper product-swiper">
-                        <div class="swiper-wrapper" id="product-list2">
-                            <!-- Products will be dynamically added here as swiper slides -->
-                        </div>
-                        <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-                            <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
-                                <a href="#">
-                                    <svg class="chevron-left pe-3">
-                                        <use xlink:href="#chevron-left"></use>
-                                    </svg>
-                                </a>
-                                <span aria-current="page" class="page-numbers current pe-3">1</span>
-                                <a class="page-numbers pe-3" href="#">2</a>
-                                <a class="page-numbers pe-3" href="#">3</a>
-                                <a class="page-numbers pe-3" href="#">4</a>
-                                <a class="page-numbers" href="#">5</a>
-                                <a href="#">
-                                    <svg class="chevron-right ps-3">
-                                        <use xlink:href="#chevron-right"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </nav>
+                </div>
             </main>
             <aside class="col-md-3">
                 <div class="sidebar">
@@ -83,25 +53,16 @@
                             </form>
                         </div>
                     </div>
-                    <div class="widget-product-categories pt-5">
-                        <h5 class="widget-title text-decoration-underline text-uppercase">Categories</h5>
-                        <ul class="product-categories sidebar-list list-unstyled">
-                            <li class="cat-item">
-                                <a href="/collections/categories">All</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="">Phones</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="">Accessories</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="">Tablets</a>
-                            </li>
-                            <li class="cat-item">
-                                <a href="">Watches</a>
-                            </li>
-                        </ul>
+
+
+                    <div class="widget-price-filter pt-3">
+                        <h5 class="widget-titlewidget-title text-decoration-underline text-uppercase">Category</h5>
+                            <div id="category-links">
+                                <a href="#" class="category-link" data-category="all">All</a><br>
+                                <a href="#" class="category-link" data-category="Model kit">Model Kit</a><br>
+                                <a href="#" class="category-link" data-category="Figurine">Figurine</a><br>
+                                <a href="#" class="category-link" data-category="Action figure">Action Figure</a>
+                            </div>
                     </div>
 
                     <div class="widget-price-filter pt-3">
@@ -124,92 +85,15 @@
 
 <!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
 
-<script>
-    async function fetchAndDisplayProducts() {
-        const API_BASE_URL = "http://localhost:8000/api";
-        const productList = document.getElementById("product-list");
-
-        try {
-            const response = await fetch(`${API_BASE_URL}/products`);
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            const products = await response.json();
-
-            // Clear existing list
-            productList.innerHTML = "";
-
-            // Iterate through products
-            products.forEach((product) => {
-                // Check if the product category is "Model kit"
-                if (product.cat && product.cat.name === "Model kit") {
-                    const productContainer = document.createElement("div");
-                    productContainer.classList.add("product-item");
-
-                    // Product Image
-                    if (product.image) {
-                        const productLink = document.createElement("a");
-                        productLink.href = "product.html";
-
-                        productLink.addEventListener("click", (event) => {
-                            event.preventDefault();
-                            localStorage.setItem("selectedProduct", JSON.stringify(product));
-                            window.location.href = productLink.href;
-                        });
-
-                        const productImage = document.createElement("img");
-                        // Construct the full image URL
-                        productImage.src = `http://localhost:8000/backend/product/${product.image}`;
-                        productImage.alt = product.name;
-                        productImage.style.width = "100%";
-
-                        productLink.appendChild(productImage);
-                        productContainer.appendChild(productLink);
-                    }
-
-                    // Product Name
-                    const productName = document.createElement("h4");
-                    productName.textContent = product.name;
-                    productName.style.color = "black";
-                    productName.style.fontSize = "1.5em";
-                    productName.style.textTransform = "uppercase";
-                    productContainer.appendChild(productName);
-
-                    // Product Price
-                    const productPrice = document.createElement("p");
-                    productPrice.textContent = `${product.price.toLocaleString()} บาท`;
-                    productPrice.style.fontSize = "1.7em";
-                    productPrice.style.color = "#00a2ff";
-                    productContainer.appendChild(productPrice);
-
-                    // Product Stock (only on product.html)
-                    if (window.location.pathname.includes("product.html")) {
-                        const productStock = document.createElement("p");
-                        productStock.textContent = `${product.amount} in stock`;
-                        productContainer.appendChild(productStock);
-                    }
-
-                    // Append to the product list
-                    productList.appendChild(productContainer);
-                }
-            });
-        } catch (error) {
-            console.error("Error fetching products:", error);
-        }
-    }
-
-    // Call the function to fetch and display products
-    document.addEventListener("DOMContentLoaded", fetchAndDisplayProducts);
-</script>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
+<script src="js/shop.js"></script>
 <script src="js/master.js"></script>
 <script src="js V/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="js V/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="js V/plugins.js"></script>
 <script type="text/javascript" src="js V/script.js"></script>
+
+<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
 
 </body>
 

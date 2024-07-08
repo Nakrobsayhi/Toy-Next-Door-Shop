@@ -729,7 +729,18 @@ h3.cart-title {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap onto the next line if they exceed the container width */
   gap: 20px; /* Adds space between each product */
+}
 
+#product-list2 {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line if they exceed the container width */
+  gap: 20px; /* Adds space between each product */
+}
+
+#product-list3 {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line if they exceed the container width */
+  gap: 20px; /* Adds space between each product */
 }
 
 .product-item {

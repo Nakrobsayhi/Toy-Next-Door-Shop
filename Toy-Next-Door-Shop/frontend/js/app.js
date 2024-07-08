@@ -2,6 +2,7 @@ async function fetchAndDisplayProducts() {
     const API_BASE_URL = "http://localhost:8000/api";
     const productList = document.getElementById("product-list");
     const productList2 = document.getElementById("product-list2");
+    const productList3 = document.getElementById("product-list3");
 
     try {
         const response = await fetch(`${API_BASE_URL}/products`);
@@ -13,6 +14,12 @@ async function fetchAndDisplayProducts() {
         // Clear existing lists
         productList.innerHTML = "";
         productList2.innerHTML = "";
+        productList3.innerHTML = "";
+
+        // Counters for each category
+        let modelKitCount = 0;
+        let figurineCount = 0;
+        let actionFigureCount = 0;
 
         // Iterate through products
         products.forEach((product) => {
@@ -62,14 +69,16 @@ async function fetchAndDisplayProducts() {
                 productContainer.appendChild(productStock);
             }
 
-            // Determine which list to append based on category
-            if (product.cat && product.cat.name === "Model kit") {
+            // Determine which list to append based on category and limit to 4 items
+            if (product.cat && product.cat.name === "Model kit" && modelKitCount < 4) {
                 productList.appendChild(productContainer);
-            } else if (product.cat && product.cat.name === "Figurine") {
+                modelKitCount++;
+            } else if (product.cat && product.cat.name === "Figurine" && figurineCount < 4) {
                 productList2.appendChild(productContainer);
-            } else {
-                // Handle products without category or unknown category
-                productList.appendChild(productContainer);
+                figurineCount++;
+            } else if (product.cat && product.cat.name === "Action figure" && actionFigureCount < 4) {
+                productList3.appendChild(productContainer);
+                actionFigureCount++;
             }
         });
     } catch (error) {
