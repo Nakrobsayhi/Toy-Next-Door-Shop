@@ -1,11 +1,12 @@
 async function fetchAndDisplayProducts() {
-    const API_BASE_URL = "http://localhost:8000/api";
+    const API_BASE_URL = "http://localhost:8000/api/products"; // Adjusted API endpoint
     const productList = document.getElementById("product-list");
     const productList2 = document.getElementById("product-list2");
     const productList3 = document.getElementById("product-list3");
+    const productList4 = document.getElementById("product-list4");
 
     try {
-        const response = await fetch(`${API_BASE_URL}/products`);
+        const response = await fetch(API_BASE_URL);
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
@@ -15,11 +16,13 @@ async function fetchAndDisplayProducts() {
         productList.innerHTML = "";
         productList2.innerHTML = "";
         productList3.innerHTML = "";
+        productList4.innerHTML = "";
 
         // Counters for each category
         let modelKitCount = 0;
         let figurineCount = 0;
         let actionFigureCount = 0;
+        let toolCategoryCount = 0;
 
         // Iterate through products
         products.forEach((product) => {
@@ -38,7 +41,6 @@ async function fetchAndDisplayProducts() {
                 });
 
                 const productImage = document.createElement("img");
-                // Construct the full image URL
                 productImage.src = `http://localhost:8000/backend/product/${product.image}`;
                 productImage.alt = product.name;
                 productImage.style.width = "100%";
@@ -62,13 +64,6 @@ async function fetchAndDisplayProducts() {
             productPrice.style.color = "#00a2ff";
             productContainer.appendChild(productPrice);
 
-            // Product Stock (only on product.html)
-            if (window.location.pathname.includes("product.html")) {
-                const productStock = document.createElement("p");
-                productStock.textContent = `${product.amount} in stock`;
-                productContainer.appendChild(productStock);
-            }
-
             // Determine which list to append based on category and limit to 4 items
             if (product.cat && product.cat.name === "Model kit" && modelKitCount < 4) {
                 productList.appendChild(productContainer);
@@ -79,6 +74,9 @@ async function fetchAndDisplayProducts() {
             } else if (product.cat && product.cat.name === "Action figure" && actionFigureCount < 4) {
                 productList3.appendChild(productContainer);
                 actionFigureCount++;
+            } else if (product.cat && product.cat.name === "Tool" && toolCategoryCount < 4) {
+                productList4.appendChild(productContainer);
+                toolCategoryCount++;
             }
         });
     } catch (error) {
