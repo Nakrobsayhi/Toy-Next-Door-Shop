@@ -43,8 +43,7 @@ async function fetchAndDisplayProducts() {
                 const productImage = document.createElement("img");
                 productImage.src = `http://localhost:8000/backend/product/${product.image}`;
                 productImage.alt = product.name;
-                productImage.style.width = "100%";
-
+                productImage.style.width = "90%";
                 productLink.appendChild(productImage);
                 productContainer.appendChild(productLink);
             }
@@ -52,29 +51,28 @@ async function fetchAndDisplayProducts() {
             // Product Name
             const productName = document.createElement("h4");
             productName.textContent = product.name;
-            productName.style.color = "black";
-            productName.style.fontSize = "1.5em";
-            productName.style.textTransform = "uppercase";
+            productName.style.fontSize = "16px";
+            productName.style.fontWeight = "normal";
             productContainer.appendChild(productName);
 
             // Product Price
             const productPrice = document.createElement("p");
             productPrice.textContent = `${product.price.toLocaleString()} บาท`;
-            productPrice.style.fontSize = "1.7em";
-            productPrice.style.color = "#00a2ff";
+            productPrice.style.textAlign = "left";
+            productPrice.style.fontSize = "18px";
             productContainer.appendChild(productPrice);
 
             // Determine which list to append based on category and limit to 4 items
-            if (product.cat && product.cat.name === "Model kit" && modelKitCount < 4) {
+            if (product.cat && product.cat.name === "Model kit" && modelKitCount < 5) {
                 productList.appendChild(productContainer);
                 modelKitCount++;
-            } else if (product.cat && product.cat.name === "Figurine" && figurineCount < 4) {
+            } else if (product.cat && product.cat.name === "Figurine" && figurineCount < 5) {
                 productList2.appendChild(productContainer);
                 figurineCount++;
-            } else if (product.cat && product.cat.name === "Action figure" && actionFigureCount < 4) {
+            } else if (product.cat && product.cat.name === "Action figure" && actionFigureCount < 5) {
                 productList3.appendChild(productContainer);
                 actionFigureCount++;
-            } else if (product.cat && product.cat.name === "Tool" && toolCategoryCount < 4) {
+            } else if (product.cat && product.cat.name === "Tool" && toolCategoryCount < 5) {
                 productList4.appendChild(productContainer);
                 toolCategoryCount++;
             }

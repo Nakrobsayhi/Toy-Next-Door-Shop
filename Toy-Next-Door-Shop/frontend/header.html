@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <script src="js V/modernizr.js"></script>
   <script src="app.js"></script>
 </head>
@@ -129,85 +127,90 @@
     </div>
   </div>
 
-  <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
-    <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/main-logo.png" class="logo">
-        </a>
-        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <svg class="navbar-icon">
-            <use xlink:href="#navbar-icon"></use>
-          </svg>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-          <div class="offcanvas-header px-4 pb-0">
-            <a class="navbar-brand" href="index.html">
-              <img src="images/main-logo.png" class="logo">
-            </a>
-            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-              data-bs-target="#bdNavbar"></button>
+  <!-- Header 1: Logo and Search Bar -->
+  <header class="site-header bg-white header-top">
+    <div class="container-fluid">
+      <div class="row w-100 align-items-center">
+        <div class="col-1 d-flex">
+          <a href="index.html">
+            <img src="images/main-logo.png" width="120px">
+          </a>
+        </div>
+        <div class="col-10 d-flex justify-content-center align-items-center">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for product by brands, model or try # to discover more...">
           </div>
-          <div class="offcanvas-body">
-            <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link me-4" href="index.html">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link me-4 dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button"
-                  aria-expanded="false">Product</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="shop.html?category=Model%20kit" class="dropdown-item">Model kit</a>
+        </div>
+        <div class="col-1">
+          <button>Login</button>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </header>
+
+  <!-- Line Separator -->
+  <div class="header-divider"></div>
+
+  <!-- Header 2: Navigation Links -->
+  <header class="site-header header-bottom">
+    <nav id="header-nav" class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="row w-100 justify-content-center">
+          <div class="col">
+            <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <svg class="navbar-icon">
+                <use xlink:href="#navbar-icon"></use>
+              </svg>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+              <div class="offcanvas-header px-4 pb-0">
+                <a class="navbar-brand" href="index.html">
+                  <img src="images/main-logo.png" class="logo">
+                </a>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
+                  data-bs-target="#bdNavbar"></button>
+              </div>
+
+              <div class="offcanvas-body d-flex justify-content-center">
+                <ul id="navbar" class="navbar-nav align-items-center">
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Shop all</a>
                   </li>
-                  <li>
-                    <a href="shop.html?category=Figurine" class="dropdown-item">Figurine</a>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Ready to ship</a>
                   </li>
-                  <li>
-                    <a href="shop.html?category=Action%20figure" class="dropdown-item">Action figure</a>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Model kit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Action figure</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Figurine</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Gacha box</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="shop.html">Tool</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="contact.html">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-4" href="aboutus.html">About us</a>
                   </li>
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="aboutus.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <div class="user-items ps-5">
-                  <ul class="d-flex justify-content-end list-unstyled">
-                    <li class="search-item pe-3">
-                      <a href="" class="search-button">
-                        <svg class="search">
-                          <use xlink:href="#search"></use>
-                        </svg>
-                      </a>
-                    </li>
-                    <li class="pe-3">
-                      <a href="{{ route('login') }}">
-                        <svg class="user">
-                          <use xlink:href="#user"></use>
-                        </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="cart.html">
-                        <svg class="cart">
-                          <use xlink:href="#cart"></use>
-                        </svg>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </nav>
+    </nav><hr style="margin: -10px;">
   </header>
+
 
   <script>
     async function fetchAndDisplayProducts(category = 'all') {

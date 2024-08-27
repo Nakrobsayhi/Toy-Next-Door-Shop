@@ -1,6 +1,6 @@
 async function fetchAndDisplayProducts(category = 'all') {
     const API_BASE_URL = "http://localhost:8000/api";
-    const productList = document.getElementById("product-list");
+    const productList = document.getElementById("shop-list");
 
     try {
         const response = await fetch(`${API_BASE_URL}/products`);
@@ -11,6 +11,8 @@ async function fetchAndDisplayProducts(category = 'all') {
 
         // Clear existing list
         productList.innerHTML = "";
+
+        let productCount = 0;
 
         // Iterate through products
         products.forEach((product) => {
@@ -33,8 +35,7 @@ async function fetchAndDisplayProducts(category = 'all') {
                     const productImage = document.createElement("img");
                     productImage.src = `http://localhost:8000/backend/product/${product.image}`;
                     productImage.alt = product.name;
-                    productImage.style.width = "100%";
-
+                    productImage.style.width = "225px";
                     productLink.appendChild(productImage);
                     productContainer.appendChild(productLink);
                 }
@@ -42,16 +43,16 @@ async function fetchAndDisplayProducts(category = 'all') {
                 // Product Name
                 const productName = document.createElement("h4");
                 productName.textContent = product.name;
-                productName.style.color = "black";
-                productName.style.fontSize = "1.5em";
-                productName.style.textTransform = "uppercase";
+                productName.style.fontSize = "16px";
+                productName.style.fontWeight = "normal";
                 productContainer.appendChild(productName);
 
                 // Product Price
                 const productPrice = document.createElement("p");
                 productPrice.textContent = `${product.price.toLocaleString()} บาท`;
-                productPrice.style.fontSize = "1.7em";
-                productPrice.style.color = "#00a2ff";
+                productPrice.style.color = "black";
+                productPrice.style.textAlign = "left";
+                productPrice.style.fontSize = "18px";
                 productContainer.appendChild(productPrice);
 
                 // Product Stock (only on product.html)
@@ -63,6 +64,11 @@ async function fetchAndDisplayProducts(category = 'all') {
 
                 // Append to the product list
                 productList.appendChild(productContainer);
+            }
+
+            if (product < 3) {
+                productList.appendChild(productContainer);
+                productCount++;
             }
         });
     } catch (error) {
