@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productDescriptionContainer.innerHTML = "";
 
         // Create and append product name
-        const productName = document.createElement("h4");
+        const productName = document.createElement("h4");   
         productName.textContent = product.name;
         productName.style.fontSize = "2em";
         productName.style.marginTop = "-25px";

@@ -17,7 +17,7 @@
                                 <input type="text" class="form-control" placeholder="Enter product name" name="name">
                                 <div class="mt-1">
                                     @error('name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -28,7 +28,7 @@
                                 <input type="text" class="form-control" placeholder="Enter price" name="price">
                                 <div class="mt-1">
                                     @error('price')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                 <input type="text" class="form-control" placeholder="Enter stock" name="amount">
                                 <div class="mt-1">
                                     @error('amount')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -50,12 +50,26 @@
                                 <select name="category_id" class="form-control mb-2" id="exampleFormControlSelect1">
                                     <option selected value="">Choose Category</option>
                                     @foreach ($category as $cat)
-                                    <option value="{{ $cat->category_id }}">{{ $cat->name }}</option>
+                                        <option value="{{ $cat->category_id }}">{{ $cat->name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="mt-1">
                                     @error('category_id')
-                                    <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label text-md-right">Ready for Ship</label>
+                            <div class="col-md-9">
+                                <select name="ready" class="form-control mb-2" id="exampleFormControlSelect1">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <div class="mt-1">
+                                    @error('ready')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -67,7 +81,7 @@
                                     name="description"></textarea>
                                 <div class="mt-1">
                                     @error('description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -93,7 +107,7 @@
 
         <div class="col-md-4">
             <div class="card card-user">
-                <div class="image">
+                <div class="image">x
                     <img src="{{ asset('backend/product/resize/no_img.png') }}" id="previewImage" alt="...">
                 </div>
             </div>
@@ -102,7 +116,7 @@
 </div>
 
 @push('scripts')
-<script src="{{ asset('backend/js/custom.js') }}"></script>
+    <script src="{{ asset('backend/js/custom.js') }}"></script>
 @endpush
 
 @endsection

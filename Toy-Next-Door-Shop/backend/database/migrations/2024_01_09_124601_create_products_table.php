@@ -15,8 +15,10 @@ return new class extends Migration
             $table->increments('product_id',10);
             $table->string('name',255);
             $table->string('price',255);
+            $table->string('amount', 255);
             $table->text('description');
             $table->integer('category_id');
+            $table->boolean('In stock');
             $table->string('image');
             $table->timestamps();
         });

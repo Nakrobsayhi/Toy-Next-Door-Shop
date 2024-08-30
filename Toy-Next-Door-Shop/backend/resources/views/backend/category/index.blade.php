@@ -26,23 +26,23 @@
 
                                 @foreach ($c as $category)
 
-                                <tr>
-                                    <td>{{ $c->firstItem() + $loop->index }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td>{{ $category->pro->count() }}</td>
-                                    <td>{{ $category->created_at }}</td>
-                                    <td>{{ $category->updated_at }}</td>
-                                    <td>
-                                        <a href="{{ url('admin/category/edit/'.$category->category_id) }}">
-                                            <button data-toggle="tooltip" title="Edit">
-                                                <i class="fa fa-pencil-square-o"></i>
-                                            </button>
-                                        </a>
-                                        <a href="{{ url('admin/category/delete/'.$category->category_id) }}"><button
-                                                data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
-                                                    class="fa fa-trash-o"></i></button></a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $c->firstItem() + $loop->index }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->pro->count() }}</td>
+                                        <td>{{ $category->created_at }}</td>
+                                        <td>{{ $category->updated_at }}</td>
+                                        <td>
+                                            <a href="{{ url('admin/category/edit/' . $category->category_id) }}">
+                                                <button data-toggle="tooltip" title="Edit">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{ url('admin/category/delete/' . $category->category_id) }}"><button
+                                                    data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i
+                                                        class="fa fa-trash-o"></i></button></a>
+                                        </td>
+                                    </tr>
 
                                 @endforeach
 

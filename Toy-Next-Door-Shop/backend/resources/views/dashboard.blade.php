@@ -15,7 +15,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">User</p>
-                                <p class="card-title"> คน
+                                <p class="card-title"> #
                                 <p>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Category</p>
-                                <p class="card-title"> ประเภท
+                                <p class="card-title"> #
                                 <p>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Product</p>
-                                <p class="card-title"> ชิ้น
+                                <p class="card-title"> #
                                 <p>
                             </div>
                         </div>

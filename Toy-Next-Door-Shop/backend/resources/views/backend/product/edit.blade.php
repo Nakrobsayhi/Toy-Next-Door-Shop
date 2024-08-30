@@ -66,6 +66,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-3 col-form-label text-md-right">Ready for Ship</label>
+                            <div class="col-md-9">
+                                <select name="ready" class="form-control mb-2" id="exampleFormControlSelect1">
+                                    <option selected value="">{{ $pro->ready }}</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <div class="mt-1">
+                                    @error('ready')
+                                        <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label text-md-right">Description</label>
                             <div class="col-md-9">
                                 <textarea class="form-control textarea" placeholder="Enter a description (optional)"

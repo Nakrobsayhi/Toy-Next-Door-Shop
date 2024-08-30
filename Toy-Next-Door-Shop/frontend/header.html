@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <script src="js V/modernizr.js"></script>
   <script src="app.js"></script>
 </head>
@@ -138,7 +140,8 @@
         </div>
         <div class="col-10 d-flex justify-content-center align-items-center">
           <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search for product by brands, model or try # to discover more...">
+            <input type="text" class="search-input" id="search"
+              placeholder="Search for product by brands, model or try # to discover more...">
           </div>
         </div>
         <div class="col-1">
@@ -179,22 +182,22 @@
                     <a class="nav-link me-4" href="shop.html">Shop all</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Ready to ship</a>
+                    <a class="nav-link me-4" href="shop.html?ready=yes">Ready to ship</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Model kit</a>
+                    <a class="nav-link me-4" href="shop.html?category=Model kit">Model kit</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Action figure</a>
+                    <a class="nav-link me-4" href="shop.html?category=Action figure">Action figure</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Figurine</a>
+                    <a class="nav-link me-4" href="shop.html?category=Figurine">Figurine</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Gacha box</a>
+                    <a class="nav-link me-4" href="shop.html?category=Gacha box">Gacha box</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Tool</a>
+                    <a class="nav-link me-4" href="shop.html?category=Tool">Tool</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link me-4" href="contact.html">Contact</a>
@@ -208,9 +211,9 @@
           </div>
         </div>
       </div>
-    </nav><hr style="margin: -10px;">
+    </nav>
+    <hr style="margin: -10px;">
   </header>
-
 
   <script>
     async function fetchAndDisplayProducts(category = 'all') {
