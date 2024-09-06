@@ -41,8 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create and append product price
         const productPrice = document.createElement("p");
         productPrice.textContent = `${product.price.toLocaleString()} บาท`; // Format price with commas
-        productPrice.style.fontSize = "2.4em";
         productPrice.style.color = "black";
+        productPrice.style.fontSize = "2.4em";
+        productPrice.style.fontWeight = "normal";
         productPriceContainer.appendChild(productPrice);
 
         // Create and append product image
@@ -65,13 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
             descriptionLines.forEach((line) => {
                 const productDescriptionLine = document.createElement("p");
                 productDescriptionLine.textContent = line.trim();
+                productDescriptionLine.style.color = "black";
+                productDescriptionLine.style.fontWeight = "normal";
                 productDescriptionContainer.appendChild(productDescriptionLine);
             });
         }
 
         const productStock = document.createElement("p");
         productStock.textContent = `${product.amount} in stock`;
-        productStock.style.color = "gray";
+        productStock.style.color = "black";
+        productStock.style.fontWeight = "normal";
         productStockContainer.appendChild(productStock);
     }
 });

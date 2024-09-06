@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Product Table</h4>
-                    <a href="{{ route('make.pro') }}"><button type="submit" class="btn">Add
+                    <a href="{{ route('admin.product.createform') }}"><button type="submit" class="btn">Add
                             Product</button></a>
                     {{ $p->links('pagination::bootstrap-5') }}
                 </div>

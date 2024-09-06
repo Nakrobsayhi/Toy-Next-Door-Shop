@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"> Category Table</h4>
-                    <a href="{{ route('make.cat') }}"><button type="submit" class="btn">Add
+                    <a href="{{ route('admin.category.createform') }}"><button type="submit" class="btn">Add
                             Category</button></a>
                     {{ $c->links('pagination::bootstrap-5') }}
                 </div>

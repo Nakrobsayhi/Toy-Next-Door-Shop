@@ -87,7 +87,6 @@ class ProductController extends Controller
                 'description' => 'required',
                 'image' => 'mimes:jpg,jpeg,png',
                 'category_id' => 'required',
-                'ready' => 'required',
             ],
             [
                 /* 'name.required' => 'Please enter a name',
@@ -106,7 +105,6 @@ class ProductController extends Controller
         $product->amount = $request->amount;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
-        $product->ready = $request->ready;
         if ($request->hasFile('image')) {
 
             if ($product->image != 'no_img.png') {

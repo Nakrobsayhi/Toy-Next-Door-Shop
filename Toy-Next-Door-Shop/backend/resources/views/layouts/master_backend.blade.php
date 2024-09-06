@@ -58,19 +58,19 @@ Coded by www.creative-tim.com
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/user/index') ? 'active' : ''}}">
-                        <a href="{{ url('admin/user/index') }}">
+                        <a href="{{ route('admin.user.index') }}">
                             <i class="nc-icon nc-single-02"></i>
                             <p>User</p>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/category/index') ? 'active' : ''}}">
-                        <a href="{{ url('admin/category/index') }}">
+                        <a href="{{ route('admin.category.index') }}">
                             <i class="nc-icon nc-caps-small"></i>
                             <p>Category</p>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/product/index') ? 'active' : ''}}">
-                        <a href="{{ url('admin/product/index') }}">
+                        <a href="{{ route('admin.product.index') }}">
                             <i class="nc-icon nc-tile-56"></i>
                             <p>Product</p>
                         </a>
