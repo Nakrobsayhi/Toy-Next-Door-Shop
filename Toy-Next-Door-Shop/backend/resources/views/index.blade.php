@@ -1,7 +1,7 @@
-<div include-html="header.html"></div>
+@include('header')
 
 <section id="yearly-sale" class="bg-light-blue padding-xlarge"
-  style="background-image: url('images/banner-image.jpg');">
+  style="background-image: url('{{ asset('frontend/images/banner-image.jpg') }}');">
   <div class="row d-flex flex-wrap align-items-center">
     <div class="col-md-6 col-sm-12">
       <div class="text-content offset-4 padding-medium">
@@ -75,8 +75,9 @@
     <a href="shop.html?category=Model kit">
       <p>Model kit &#129122;</p>
     </a><br>
-    <div id="product-list">
-    </div>
+
+
+  </div>
   </div>
 </section>
 
@@ -198,23 +199,4 @@
 
 <br><br><br><br><br>
 
-<div include-html="footer.html"></div>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-<script src="js/master.js"></script>
-<script src="js/app.js"></script>
-<script src="js V/jquery-1.11.0.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="js V/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="js V/plugins.js"></script>
-<script type="text/javascript" src="js V/script.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-</body>
-
-</html>
+@include('footer')

@@ -3,10 +3,14 @@
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\OrderController;
+use App\Https\Controller\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\isAdmin;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,18 +26,17 @@ get = form post = hide info
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return redirect()->route('login');
 });
 
 Route::get('/login', function () {
-    return view('auth.login');
+    return view('dashboard');
 })->name('login');
-
 Route::get('/dashboard', function () {
     $u = User::all();
     $c = Category::all();
     $p = Product::all();
-    return view('dashboard', compact('u', 'c', 'p'));
+    return view('/dashboard', compact('u', 'c', 'p'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -44,7 +47,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'IsAdmin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('index', [UserController::class, 'index'])->name('index');
@@ -68,4 +71,17 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'IsAdmin'])->group(f
         Route::get('delete/{id}', [ProductController::class, 'delete'])->name('delete');
         Route::get('menu', [ProductController::class, 'menu'])->name('menu');
     });
+
+    Route::prefix('order')->name('order.')->group(function () {
+        Route::get('index', [OrderController::class, 'index'])->name('index');
+        Route::get('createform', [OrderController::class, 'createform'])->name('createform');
+        Route::get('edit/{id}', [OrderController::class, 'edit'])->name('edit');
+        Route::post('insert', [OrderController::class, 'insert'])->name('insert');
+        Route::post('update/{id}', [OrderController::class, 'update'])->name('update');
+        Route::get('delete/{id}', [OrderController::class, 'delete'])->name('delete');
+    });
 });
+
+Route::get('/shop', [ProductController::class, 'showShop'])->name('shop');
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+

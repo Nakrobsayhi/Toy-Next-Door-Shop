@@ -6,20 +6,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/style.css') }}">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
-  <script src="js V/modernizr.js"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
@@ -118,21 +109,57 @@
   <header class="site-header bg-white header-top">
     <div class="container-fluid">
       <div class="row w-100 align-items-center">
-        <div class="col-1 ">
-          <a href="index.html">
-            <img src="images/main-logo.png" width="120px" >
+        <div class="col-1 d-flex">
+          <a href="{{ url('/') }}">
+            <img src="{{ asset('frontend/main-logo.png') }}" width="120px" alt="Main Logo">
           </a>
         </div>
         <div class="col-10 d-flex justify-content-center align-items-center">
-          <form action="http://localhost:8000/search" method="GET">
+          <form action="{{ url('/search') }}" method="GET">
             <input class="search-input" id="search" type="text" name="query"
-              placeholder="Search for product by brands, model..." required>
+              placeholder="Search for product by name, brands...." required>
           </form>
         </div>
+
+        @if(Auth::check())
+      <!-- User is logged in -->
+      <div class="col-1 d-flex" id="loggedInButtons">
+        <a href="{{ url('/cart') }}" class="me-2">
+        <button id="cartButton">Cart</button>
+        </a>
+        <form action="{{ url('/logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" id="logoutButton">Logout</button>
+        </form>
+      </div>
+      <!-- Hide the login button when logged in -->
+      <div class="col-1" id="loginbut" style="display: none;">
+        <a href="{{ url('/login') }}">
+        <button id="loginButton">Login</button>
+        </a>
+      </div>
+    @else
+    <!-- User is not logged in -->
+    <div class="col-1" id="loginbut">
+      <a href="{{ url('/login') }}">
+      <button id="loginButton">Login</button>
+      </a>
+    </div>
+    <!-- Hide the cart button and logout button when not logged in -->
+    <div class="col-1" id="loggedInButtons" style="display: none;">
+      <a href="{{ url('/cart') }}" class="me-2">
+      <button id="cartButton">Cart</button>
+      </a>
+      <form action="{{ url('/logout') }}" method="POST" style="display: inline;">
+      @csrf
+      <button type="submit" id="logoutButton">Logout</button>
+      </form>
+    </div>
+  @endif
+
         <hr>
       </div>
     </div>
-
   </header>
 
   <!-- Line Separator -->
@@ -162,25 +189,29 @@
               <div class="offcanvas-body d-flex justify-content-center">
                 <ul id="navbar" class="navbar-nav align-items-center">
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Shop all</a>
+                    <a class="nav-link me-4" href="http://127.0.0.1:3000/frontend/shop.html">Shop all</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?ready=yes">Ready to ship</a>
+                    <a class="nav-link me-4" href="http://127.0.0.1:3000/frontend/shop.html?ready=yes">Ready to ship</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Model kit">Model kit</a>
+                    <a class="nav-link me-4" href="http://127.0.0.1:3000/frontend/shop.html?category=Model kit">Model
+                      kit</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Action figure">Action figure</a>
+                    <a class="nav-link me-4"
+                      href="http://127.0.0.1:3000/frontend/shop.html?category=Action figure">Action figure</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Figurine">Figurine</a>
+                    <a class="nav-link me-4"
+                      href="http://127.0.0.1:3000/frontend/shop.html?category=Figurine">Figurine</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Gacha box">Gacha box</a>
+                    <a class="nav-link me-4" href="http://127.0.0.1:3000/frontend/shop.html?category=Gacha box">Gacha
+                      box</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Tool">Tool</a>
+                    <a class="nav-link me-4" href="http://127.0.0.1:3000/frontend/shop.html?category=Tool">Tool</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link me-4" href="contact.html">Contact</a>

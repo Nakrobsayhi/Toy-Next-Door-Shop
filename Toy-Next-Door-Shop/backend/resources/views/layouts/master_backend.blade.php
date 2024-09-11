@@ -12,6 +12,7 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,6 +76,12 @@ Coded by www.creative-tim.com
                             <p>Product</p>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/order/index') ? 'active' : ''}}">
+                        <a href="{{ route('admin.order.index') }}">
+                            <i class="nc-icon nc-tile-56"></i>
+                            <p>Order</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -118,14 +125,6 @@ Coded by www.creative-tim.com
                                         </a>
                                     </form>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn-rotate" href="{{ route('profile.edit') }}">
-                                    <i class="nc-icon nc-settings-gear-65"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Account</span>
-                                    </p>
-                                </a>
                             </li>
                         </ul>
                     </div>

@@ -19,10 +19,11 @@ class isAdmin
     {
         $auth = Auth::user();
 
-        if ($auth->isAdmin == 1) {
-            return $next($request);
+        if ($auth->IsAdmin == 1) {
+            return $next($request); 
         } else {
-            return redirect()->route('Dashboard');
+            return redirect('http://127.0.0.1:3000/frontend/index.html');
+
         }
     }
 }

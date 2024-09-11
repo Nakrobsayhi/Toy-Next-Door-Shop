@@ -20,6 +20,12 @@ class ProductController extends Controller
         return view('backend/product/index', compact('p'));
     }
 
+    public function shop()
+    {
+        $p = Product::orderBy('product_id', 'desc')->paginate(10);
+        return view('shop', compact('p'));
+    }
+
     public function createform()
     {
         $category = Category::all();
@@ -131,9 +137,15 @@ class ProductController extends Controller
         return redirect('admin/product/index');
     }
 
-    public function menu()
+    public function search(Request $request)
     {
-        $prod = product::all();
+        $query = $request->input('query');
+
+        $products = Product::where('name', 'LIKE', "%{$query}%")
+            ->paginate(10);
+
+        return view('shop', ['products' => $products]);
     }
 
 }
+

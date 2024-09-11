@@ -15,7 +15,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">User</p>
-                                <p class="card-title"> #
+                                <p class="card-title"> {{ $u->count() }}
                                 <p>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Category</p>
-                                <p class="card-title"> #
+                                <p class="card-title"> {{ $c->count() }}
                                 <p>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Product</p>
-                                <p class="card-title"> #
+                                <p class="card-title"> {{ $p->count() }}
                                 <p>
                             </div>
                         </div>

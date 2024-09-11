@@ -3330,7 +3330,7 @@ License - nucleoapp.com/license/
   position: relative;
   float: right;
   width: calc(100% - 260px);
-  background-color: rgb(255, 255, 255);
+  background-color: #f4f3ef;
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
   .main-panel > .content {
     display: flex;
@@ -4259,4 +4259,88 @@ td {
   color: #51bcda;
   font-weight: 400;
   font-size: 1.5em;
+}
+
+.order-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next row */
+  justify-content: space-between; /* Space between cards */
+  gap: 20px; /* Space between the cards */
+}
+
+.order-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  width: calc(50% - 20px); /* Two cards per row */
+  box-sizing: border-box;
+  display: flex;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 calc(50% - 20px); /* Flex basis for two per row */
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.order-details {
+  width: 66.67%;
+  padding-right: 20px;
+}
+
+.product-image img {
+  max-height: 250px;
+
+}
+
+.order-id {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.order-card p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.order-card p strong {
+  color: #666;
+}
+
+.status {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.status.pending {
+  color: #FFA726;
+}
+
+.status.completed {
+  color: #4CAF50;
+}
+
+.status.cancelled {
+  color: #F44336;
+}
+
+.statuscheck {
+  width: 130px;
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  color: #66615b;
+  line-height: normal;
+  font-size: 14px;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  box-shadow: none; 
+}
+
+.interact-order {
+  display: flex;
+  gap: 5px;
 }
