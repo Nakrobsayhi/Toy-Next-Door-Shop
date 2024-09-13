@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function shop()
     {
-        $p = Product::orderBy('product_id', 'desc')->paginate(10);
+        $p = Product::orderBy('product_id', 'desc');
         return view('shop', compact('p'));
     }
 
@@ -144,8 +144,21 @@ class ProductController extends Controller
         $products = Product::where('name', 'LIKE', "%{$query}%")
             ->paginate(10);
 
-        return view('shop', ['products' => $products]);
+        return view('frontend.shop', ['products' => $products]);
     }
+
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product.show', compact('product'));
+    }
+    
+    public function cart($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('frontend.cart', compact('product'));
+    }
+    
 
 }
 

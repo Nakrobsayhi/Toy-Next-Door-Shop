@@ -1,11 +1,13 @@
-@include('header')
+@extends('layouts.frontend')
+
+@section('content')
 
 <section id="yearly-sale" class="bg-light-blue padding-xlarge"
-  style="background-image: url('{{ asset('frontend/images/banner-image.jpg') }}');">
+  style="background-image: url('assets/images/banner-image.jpg');">
   <div class="row d-flex flex-wrap align-items-center">
     <div class="col-md-6 col-sm-12">
       <div class="text-content offset-4 padding-medium">
-        <br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
     </div>
   </div>
@@ -75,9 +77,8 @@
     <a href="shop.html?category=Model kit">
       <p>Model kit &#129122;</p>
     </a><br>
-
-
-  </div>
+    <div id="product-list">
+    </div>
   </div>
 </section>
 
@@ -87,26 +88,6 @@
       <p>Figurine &#129122;</p>
     </a><br>
     <div id="product-list2">
-    </div>
-  </div>
-</section>
-
-<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
-  <div class="container">
-    <a href="shop.html?category=Action figure">
-      <p>Action figure &#129122;</p>
-    </a><br>
-    <div id="product-list3">
-    </div>
-  </div>
-</section>
-
-<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
-  <div class="container">
-    <a href="shop.html?category=Tool">
-      <p>Tool &#129122;</p>
-    </a><br>
-    <div id="product-list4">
     </div>
   </div>
 </section>
@@ -197,6 +178,27 @@
   <div class="swiper-pagination"></div>
 </section>
 
-<br><br><br><br><br>
 
-@include('footer')
+<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
+  <div class="container">
+    <a href="shop.html?category=Action figure">
+      <p>Action figure &#129122;</p>
+    </a><br>
+    <div id="product-list3">
+    </div>
+  </div>
+</section>
+
+<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
+  <div class="container">
+    <a href="shop.html?category=Tool">
+      <p>Tool &#129122;</p>
+    </a><br>
+    <div id="product-list4">
+    </div>
+  </div>
+</section>
+
+<script src="{{ asset('assets/js/app.js') }}"></script>
+
+@endsection

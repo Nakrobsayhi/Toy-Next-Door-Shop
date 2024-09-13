@@ -1,17 +1,20 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\OrderController;
+
 use App\Https\Controller\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\isAdmin;
+
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +28,44 @@ get = form post = hide info
 |  auth.login
 */
 
+// Frontend
 Route::get('/', function () {
-    return redirect()->route('login');
-});
+    return view('frontend.index');
+})->name('main');
 
+Route::get('shop', function () {
+    return view('frontend.shop');
+})->name('shop');
+
+Route::get('/shop', [ProductController::class, 'search'])->name('shop');
+
+Route::get('shopping', function () {
+    return view('frontend.shopping');
+})->name('shopping');
+
+Route::get('/shopping', [ProductController::class, 'search'])->name('shopping');
+
+Route::get('product', function () {
+    return view('frontend.product');
+})->name('product');
+
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('cart', function () {
+    return view('frontend.cart');
+})->name('cart');
+
+Route::get('/cart/{id}', [ProductController::class, 'cart'])->name('cart');
+
+Route::get('contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+
+// Backend
 Route::get('/login', function () {
     return view('dashboard');
 })->name('login');
+
 Route::get('/dashboard', function () {
     $u = User::all();
     $c = Category::all();
@@ -51,6 +85,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(f
 
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('index', [UserController::class, 'index'])->name('index');
+        Route::get('createform', [UserController::class, 'createform'])->name('createform');
+        Route::post('insert', [UserController::class, 'insert'])->name('insert');
     });
 
     Route::prefix('category')->name('category.')->group(function () {
@@ -81,7 +117,3 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(f
         Route::get('delete/{id}', [OrderController::class, 'delete'])->name('delete');
     });
 });
-
-Route::get('/shop', [ProductController::class, 'showShop'])->name('shop');
-Route::get('/search', [ProductController::class, 'search'])->name('search');
-

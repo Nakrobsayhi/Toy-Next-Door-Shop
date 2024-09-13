@@ -28,7 +28,7 @@ Theme Name: Ministore
  */
 @media screen and (max-width: 600px) {
   :root {
-    --header-height: 100px;
+    --height: 100px;
     --header-height-min: 80px;
   }
 }
@@ -675,8 +675,7 @@ h3.cart-title {
   position: fixed;
   width: 100%;
   height: 100px;
-  z-index: 10;
-  transition: background 0.3s ease-out;
+  z-index: 1000;
 }
 
 .navbar-toggler svg.navbar-icon {
@@ -697,6 +696,7 @@ h3.cart-title {
 
 .header-top {
   padding: 10px 0;
+  padding-top: 10px;
 }
 
 .header-bottom {
@@ -708,9 +708,7 @@ h3.cart-title {
   height: 50px;
 }
 
-.site-header hr {
-  margin-top: 10px;
-}
+
 
 /*------------ Offcanvas -------------- */
 #header-nav .navbar-toggler:focus {
@@ -894,6 +892,16 @@ h3.cart-title {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  color: black;
+}
+
+#shop-listing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: black;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .product-store .product-card .cart-concern {
@@ -1102,8 +1110,10 @@ figure.instagram-item img.insta-image {
 .sidebar input.search-field {
   width: 290px;
   height: 50px;
-  box-shadow: 5px 5px 15px 5px #eee;
-  border: 1px solid #eee;
+  color: #888;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  background-color: #f7f8f7;
   padding-left: 20px;
   outline-offset: 0;
 }
@@ -1339,4 +1349,53 @@ figure.instagram-item img.insta-image {
   content: "Loading...";
   font-size: 24px;
   color: #000;
+}
+
+/* Styling for form labels */
+.styled-form label {
+  font-weight: bold; /* Bold font for labels */
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Styling for form inputs */
+.styled-form input[type="text"] {
+  width: calc(100% - 22px); /* Full width minus padding */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  background-color: #f7f8f7; /* Light grey background for inputs */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.styled-form input[id="member_id"] {
+  width: 20%;
+}
+
+.styled-form input[id="name"] {
+  width: 60%;
+}
+
+
+/* Add some spacing between form elements */
+.styled-form br {
+  display: none; /* Hide <br> elements */
+}
+
+/* Add spacing between input fields */
+.styled-form input[type="text"] + input[type="text"] {
+  margin-top: 10px; /* Add margin to the top of the next input field */
+}
+
+/* Shoppping */
+#shop-listing .product-item {
+  width: 230px;
+  padding: 10px;
+}
+
+#shop-listing img {
+  margin-bottom: 10px;
+}
+
+#shop-listing h6 {
+  margin: 5px 0;
 }

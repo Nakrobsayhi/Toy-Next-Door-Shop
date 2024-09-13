@@ -120,43 +120,6 @@
               placeholder="Search for product by name, brands...." required>
           </form>
         </div>
-
-        @if(Auth::check())
-      <!-- User is logged in -->
-      <div class="col-1 d-flex" id="loggedInButtons">
-        <a href="{{ url('/cart') }}" class="me-2">
-        <button id="cartButton">Cart</button>
-        </a>
-        <form action="{{ url('/logout') }}" method="POST" style="display: inline;">
-        @csrf
-        <button type="submit" id="logoutButton">Logout</button>
-        </form>
-      </div>
-      <!-- Hide the login button when logged in -->
-      <div class="col-1" id="loginbut" style="display: none;">
-        <a href="{{ url('/login') }}">
-        <button id="loginButton">Login</button>
-        </a>
-      </div>
-    @else
-    <!-- User is not logged in -->
-    <div class="col-1" id="loginbut">
-      <a href="{{ url('/login') }}">
-      <button id="loginButton">Login</button>
-      </a>
-    </div>
-    <!-- Hide the cart button and logout button when not logged in -->
-    <div class="col-1" id="loggedInButtons" style="display: none;">
-      <a href="{{ url('/cart') }}" class="me-2">
-      <button id="cartButton">Cart</button>
-      </a>
-      <form action="{{ url('/logout') }}" method="POST" style="display: inline;">
-      @csrf
-      <button type="submit" id="logoutButton">Logout</button>
-      </form>
-    </div>
-  @endif
-
         <hr>
       </div>
     </div>

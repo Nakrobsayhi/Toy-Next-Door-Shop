@@ -1,4 +1,6 @@
-<div include-html="header.html"></div>
+@extends('layouts.frontend')
+
+@section('content')
 
 <section id="yearly-sale" class="bg-light-blue padding-medium"
     style="background-image: url('https://da.lnwfile.com/_/da/_raw/0k/7j/ao.png');">
@@ -27,7 +29,6 @@
                 </div><br>
                 <div>
                     <div id="shop-list">
-                        <!-- Products will be dynamically added here as swiper slides -->
                     </div>
                 </div>
             </main>
@@ -35,8 +36,9 @@
                 <div class="sidebar">
                     <div class="widget-menu">
                         <div class="widget-search-bar">
-                            <form action="http://localhost:8000/search" method="GET" class="d-flex">
-                                <input class="search-field" placeholder="Search by brands, name...." type="search" name="query">
+                            <form action="" method="GET" class="d-flex">
+                                <input class="search-field" placeholder="Search by brands, name...." type="search"
+                                    name="query">
                             </form>
                         </div>
                     </div>
@@ -57,22 +59,6 @@
     </div>
 </div>
 
-<br><br><br><br><br>
+<script src="{{ asset('assets/js/shop.js') }}"></script>
 
-<div include-html="footer.html"></div>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-<script src="js/shop.js"></script>
-<script src="js/master.js"></script>
-<script src="js V/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="js V/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="js V/plugins.js"></script>
-<script type="text/javascript" src="js V/script.js"></script>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-</body>
-
-</html>
+@endsection

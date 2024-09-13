@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Order::orderBy('orders_id')->Paginate(10);
+        $order = Order::orderBy('orders_id')->Paginate(30);
         return view('backend/order/index', compact('order'));
     }
 
@@ -72,7 +72,8 @@ class OrderController extends Controller
                 'name' => 'required|string|max:255',
                 'phone' => 'required|string|max:20',
                 'address' => 'required|string',
-            ]);
+                'member_id' => 'required|exists:members,member_id'
+            ]); 
 
             // Create a new order instance
             $order = new Order();
@@ -80,6 +81,7 @@ class OrderController extends Controller
             $order->phone = $validated['phone'];
             $order->address = $validated['address'];
             $order->product_id = $request->product_id;
+            $order->member_id = $request->member_id;
             $order->save();
 
             // Return a JSON response

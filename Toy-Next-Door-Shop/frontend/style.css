@@ -707,6 +707,8 @@ h3.cart-title {
   height: 50px;
 }
 
+
+
 /*------------ Offcanvas -------------- */
 #header-nav .navbar-toggler:focus {
   box-shadow: none;
@@ -1097,8 +1099,10 @@ figure.instagram-item img.insta-image {
 .sidebar input.search-field {
   width: 290px;
   height: 50px;
-  box-shadow: 5px 5px 15px 5px #eee;
-  border: 1px solid #eee;
+  color: #888;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  background-color: #f7f8f7;
   padding-left: 20px;
   outline-offset: 0;
 }
@@ -1336,12 +1340,6 @@ figure.instagram-item img.insta-image {
   color: #000;
 }
 
-/* Container for the form */
-.styled-form {
-  max-width: 400px; /* Max width of the form */
-
-}
-
 /* Styling for form labels */
 .styled-form label {
   font-weight: bold; /* Bold font for labels */
@@ -1357,6 +1355,15 @@ figure.instagram-item img.insta-image {
   background-color: #f7f8f7; /* Light grey background for inputs */
   box-sizing: border-box; /* Include padding and border in width calculation */
 }
+
+.styled-form input[id="member_id"] {
+  width: 20%;
+}
+
+.styled-form input[id="name"] {
+  width: 60%;
+}
+
 
 /* Add some spacing between form elements */
 .styled-form br {

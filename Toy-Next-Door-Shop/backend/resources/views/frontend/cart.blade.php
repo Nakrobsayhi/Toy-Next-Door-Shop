@@ -1,4 +1,6 @@
-<div include-html="header.html"></div>
+@extends ('layouts.frontend')
+
+@section('content')
 
 <section class="shopify-cart padding-large">
     <div class="container">
@@ -41,13 +43,13 @@
                             <div class="cart-info d-flex flex-wrap align-items-center mb-4">
                                 <div class="col-lg-5">
                                     <div class="card-image">
-                                        <div id="product-img"></div>
+                                    <img src="{{ asset('backend/product/' . $product->image) }}" alt="" width="90%">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="card-detail">
                                         <h3 class="card-title">
-                                            <div id="product-details"></div>
+                                        {{ $product->name }}
                                         </h3>
                                         <div class="card-price">
                                             <div id="product-id"></div>
@@ -67,7 +69,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="total-price">
-                                        <div id="product-price"></div>
+                                      ฿ {{ $product->price }}
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +78,8 @@
                 </div>
             </div>
             <div class="cart-totals bg-grey padding-medium">
-                <!-- <h2 class="display-7 text-uppercase text-dark pb-4">Cart Totals</h2>
+
+                <h2 class="display-7 text-uppercase text-dark pb-4">Cart Totals</h2>
                 <div class="total-price pb-5">
                     <table cellspacing="0" class="table text-uppercase">
                         <tbody>
@@ -85,28 +88,25 @@
                                 <td data-title="Total">
                                     <span class="price-amount amount text-primary ps-5">
                                         <bdi>
-                                            <span class="price-currency-symbol">$</span>2,370.00</bdi>
+                                           ฿ {{ $product->price }}
                                     </span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
+
                 <form id="cart-form">
                     <div class="button-wrap">
                         <button type="button" class="btn btn-black btn-medium text-uppercase me-2 mb-3 btn-rounded-none"
-                            id="update-cart-button">Place order</button>
+                            id="update-cart-button"></button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
 </section>
 
-<div include-html="footer.html"></div>
+<script src="{{ asset('assets/js/checkout.js') }}"></script>
 
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-<script src="js/master.js"></script>
-<script src="js/checkout.js"></script>
+@endsection

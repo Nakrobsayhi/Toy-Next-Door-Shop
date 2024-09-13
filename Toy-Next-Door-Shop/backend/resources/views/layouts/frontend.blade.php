@@ -11,15 +11,15 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   <meta name="description" content="">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
-  <script src="js V/modernizr.js"></script>
+  <script src="{{ asset('assets/js V/modernizr.js') }}"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
@@ -119,17 +119,17 @@
     <div class="container-fluid">
       <div class="row w-100 align-items-center">
         <div class="col-1 d-flex">
-          <a href="index.html">
-            <img src="images/main-logo.png" width="120px" >
+          <a href="{{ route('main') }}">
+            <img src="{{ asset('assets/images/main-logo.png') }}" width="120px">
           </a>
         </div>
         <div class="col-10 d-flex justify-content-center align-items-center">
-          <form action="http://localhost:8000/search" method="GET">
+          <form action="{{ route('shopping') }}" method="GET">
             <input class="search-input" id="search" type="text" name="query"
               placeholder="Search for product by brands, model..." required>
           </form>
         </div>
-        <hr>
+
       </div>
     </div>
 
@@ -152,8 +152,8 @@
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
               <div class="offcanvas-header px-4 pb-0">
-                <a class="navbar-brand" href="index.html">
-                  <img src="images/main-logo.png" class="logo">
+                <a class="navbar-brand" href="{{ route('main') }}">
+                  <img src="{{ asset('assets/images/main-logo.png') }}" class="logo">
                 </a>
                 <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
                   data-bs-target="#bdNavbar"></button>
@@ -162,32 +162,33 @@
               <div class="offcanvas-body d-flex justify-content-center">
                 <ul id="navbar" class="navbar-nav align-items-center">
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html">Shop all</a>
+                    <a class="nav-link me-4" href="{{ route('shopping') }}">Shop all</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?ready=yes">Ready to ship</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['ready' => 'yes']) }}">Ready to ship</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Model kit">Model kit</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => 'Model kit']) }}">Model kit</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Action figure">Action figure</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => 'Action figure']) }}">Action
+                      figure</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Figurine">Figurine</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => 'Figurine']) }}">Figurine</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Gacha box">Gacha box</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => 'Gacha box']) }}">Gacha box</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="shop.html?category=Tool">Tool</a>
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => 'Tool']) }}">Tool</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="contact.html">Contact</a>
+                    <a class="nav-link me-4" href="{{ route('contact') }}">Contact</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link me-4" href="aboutus.html">About us</a>
-                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link me-4" href="">About us</a>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -197,3 +198,88 @@
     </nav>
     <hr style="margin: -10px;">
   </header>
+
+  @yield('content')
+
+  <br><br><br><br><br>
+
+  <footer id="footer" class="overflow-hidden">
+    <div class="container">
+      <div class="row">
+        <div class="footer-top-area">
+          <div class="row d-flex flex-wrap justify-content-between">
+            <div class="col-lg-3 col-sm-6 pb-3">
+              <div class="footer-menu">
+                <img src="{{ asset('assets/images/main-logo.png') }}" alt="logo" width="50%">
+                <p>ทางร้าน จำหน่ายและรับ Pre-order Gunpla และสินค้า</p>
+                <div class="social-links">
+                  <ul class="d-flex list-unstyled">
+                    <li>
+                      <a href="#">
+                        <svg class="facebook">
+                          <use xlink:href="#facebook" />
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-sm-6 pb-3">
+              <div class="footer-menu text-uppercase">
+                <h5 class="widget-title pb-2">Quick Links</h5>
+                <ul class="menu-list list-unstyled text-uppercase">
+                  <li class="menu-item pb-2">
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li class="menu-item pb-2">
+                    <a href="aboutus.html">About</a>
+                  </li>
+                  <li class="menu-item pb-2">
+                    <a href="shop.html">Shop</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 pb-3">
+              <div class="footer-menu text-uppercase">
+                <h5 class="widget-title pb-2">Help & Info Help</h5>
+                <ul class="menu-list list-unstyled">
+                  <li class="menu-item pb-2">
+                    <a href="contact.html">Contact Us</a>
+                  </li>
+                  <li class="menu-item pb-2">
+                    <a href="#">Faqs</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 pb-3">
+              <div class="footer-menu contact-item">
+                <h5 class="widget-title text-uppercase pb-2">Contact Us</h5>
+                <p>If you need support? Just give us a call. <a href="">
+                    089 895 9036</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ asset('assets/js/master.js') }}"></script>
+  <script src="{{ asset('assets/js V/jquery-1.11.0.min.js') }}"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="{{ asset('assets/js V/bootstrap.bundle.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('assets/js V/plugins.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('assets/js V/script.js') }}"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
+
+</body>
+
+</html>

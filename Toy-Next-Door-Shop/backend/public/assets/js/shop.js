@@ -25,14 +25,14 @@ async function fetchAndDisplayProducts(category = "all", ready = "all") {
 
         // Product Image
         if (product.image) {
-          const productLink = document.createElement("a");
-          productLink.href = "product.html";
-
-          productLink.addEventListener("click", (event) => {
-            event.preventDefault();
-            localStorage.setItem("selectedProduct", JSON.stringify(product));
-            window.location.href = productLink.href;
-          });
+              const productLink = document.createElement("a");
+              // Assuming `product` is an object containing the `product_id`
+              productLink.href = `http://localhost:8000/product/${product.product_id}`;
+              
+              productLink.addEventListener("click", () => {
+                localStorage.setItem("selectedProduct", JSON.stringify(product));
+                // The link will naturally redirect to the new URL
+              });
 
           const productImage = document.createElement("img");
           productImage.src = `http://localhost:8000/backend/product/${product.image}`;

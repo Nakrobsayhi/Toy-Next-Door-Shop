@@ -1,61 +1,46 @@
-<div include-html="header.html"></div>
+@extends ('layouts.frontend')
+
+@section('content')
 
 <section id="selling-product" class="single-product padding-large">
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-6">
                 <div class="mb-3">
-                    <div id="product-img"></div>
+                    <img src="{{ asset('backend/product/' . $product->image) }}" alt="" width="90%">
                 </div>
             </div>
             <div class="col-lg-6 padding-small">
                 <div class="product-info">
                     <div class="element-header">
-                        <div id="product-name"></div>
-                        <div class="rating-container d-flex align-items-center">
-                            <div class="rating" data-rating="1" onclick=rate(1)>
-                                <svg class="star star-fill">
-                                    <div id="product-details"></div>
-                                </svg>
-                            </div>
+                        {{ $product->name }}
+                        <div class="">
+                            {{ $product->cat->name}} | {{ $product->product_id }}
                         </div>
                     </div><br>
-                    <div id="product-price"></div>
+                    ฿ {{ $product->price }}
                     <hr>
                     <div class="row">
-                        <div id="product-stock"></div>
-                       
                         <div class="col-md-8">
-                            <!-- Your content for the right section -->
-                            <!-- Add content here -->
-                            <div class="product-quantity">
-                                <div class="stock-button-wrap">
-
-                                </div>
-                            </div>
+                            <h6>Product Details</h6>
+                            <br>
+                            {{ $product->amount }} In stock
+                            <br><br>
                         </div>
                     </div>
                 </div>
-                <div class="qty-button d-flex flex-wrap pt-3">
-                    <button id="buyNowBtn" type="button" class="btn btn-primary btn-medium text-uppercase me-3 mt-3">buy now</button>
-                </div>
-
-                <hr>
-                <div class="table-container">
-                    <div class="table-row lineTR">
-                        <div class="table-cell"><a href="https://www.facebook.com/ToyNextDoorShop"><img
-                                    src="https://freepnglogo.com/images/all_img/1713419057Facebook_PNG.png" width="15%"
-                                    alt=""></a></div>
-                    </div>
-                    <div class="table-row lineTR">
-                        <div class="table-cell barTD top">Category</div>
-                        <div class="table-cell barTD top">
-                            <div id="product-category"></div>
-                        </div>
-                    </div>
-                </div>
+                <a href="http://localhost:8000/cart/{{ $product->product_id }}">
+                    <div class="qty-button d-flex flex-wrap pt-3">
+                        <button id="buyNowBtn" type="button"
+                            class="btn btn-primary btn-medium text-uppercase me-3 mt-3">buy
+                            now</button>
+                </a>
             </div>
+            <!-- third paragraph -->
+            <hr>
+            Category: {{ $product->cat->name}}
         </div>
+    </div>
     </div>
     </div>
 </section>
@@ -77,7 +62,8 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active border-top border-bottom padding-small" id="nav-home"
                         role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div id="product-desc"></div>
+                        {!! nl2br(e($product->description)) !!}
+
                     </div>
                     <div class="tab-pane fade border-top border-bottom padding-small" id="nav-review" role="tabpanel"
                         aria-labelledby="nav-review-tab">
@@ -160,33 +146,5 @@
     </div>
 </section><br><br>
 
-<!-- <section id="related-products" class="product-store position-relative padding-large">
-    <div class="container">
-        <div class="row">
-            <div class="display-header d-flex justify-content-between pb-3">
-                <h2 class="display-7 text-dark text-uppercase">Related Products</h2>
-            </div>
-            <div class="swiper product-swiper">
-            </div>
-        </div>
-    </div>
-    <div class="swiper-pagination position-absolute text-center"></div>
-</section> -->
 
-<div include-html="footer.html"></div>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-<script src="js/master.js"></script>
-<script src="js/product.js"></script>
-<script src="js V/jquery-1.11.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="js V/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="js V/plugins.js"></script>
-<script type="text/javascript" src="js V/script.js"></script>
-
-<!-- x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x -->
-
-</body>
-
-</html>
+@endsection

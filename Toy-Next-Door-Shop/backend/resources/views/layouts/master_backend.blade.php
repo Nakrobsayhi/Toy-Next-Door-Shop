@@ -61,7 +61,7 @@ Coded by www.creative-tim.com
                     <li class="{{ Request::is('admin/user/index') ? 'active' : ''}}">
                         <a href="{{ route('admin.user.index') }}">
                             <i class="nc-icon nc-single-02"></i>
-                            <p>User</p>
+                            <p>Member</p>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/category/index') ? 'active' : ''}}">
