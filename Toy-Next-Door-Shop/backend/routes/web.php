@@ -13,6 +13,7 @@ use App\Http\Middleware\isAdmin;
 
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Member;
 use App\Models\Product;
 use App\Models\Order;
 
@@ -39,17 +40,11 @@ Route::get('shop', function () {
 
 Route::get('/shop', [ProductController::class, 'search'])->name('shop');
 
-Route::get('shopping', function () {
-    return view('frontend.shopping');
-})->name('shopping');
-
-Route::get('/shopping', [ProductController::class, 'search'])->name('shopping');
-
 Route::get('product', function () {
-    return view('frontend.product');
-})->name('product');
+    return view('frontend.show');
+})->name('show');
 
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('show');
 
 Route::get('cart', function () {
     return view('frontend.cart');
@@ -63,14 +58,15 @@ Route::get('contact', function () {
 
 // Backend
 Route::get('/login', function () {
-    return view('dashboard');
+    return view('auth/login');
 })->name('login');
 
 Route::get('/dashboard', function () {
     $u = User::all();
     $c = Category::all();
     $p = Product::all();
-    return view('/dashboard', compact('u', 'c', 'p'));
+    $m = Member::all();
+    return view('/dashboard', compact('u', 'c', 'p','m'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

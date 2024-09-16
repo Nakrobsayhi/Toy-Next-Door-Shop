@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Order::orderBy('orders_id')->Paginate(30);
+        $order = Order::orderBy('orders_id', direction: 'desc')->Paginate(10);
         return view('backend/order/index', compact('order'));
     }
 
@@ -73,7 +73,7 @@ class OrderController extends Controller
                 'phone' => 'required|string|max:20',
                 'address' => 'required|string',
                 'member_id' => 'required|exists:members,member_id'
-            ]); 
+            ]);
 
             // Create a new order instance
             $order = new Order();

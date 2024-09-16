@@ -78,7 +78,7 @@ Coded by www.creative-tim.com
                     </li>
                     <li class="{{ Request::is('admin/order/index') ? 'active' : ''}}">
                         <a href="{{ route('admin.order.index') }}">
-                            <i class="nc-icon nc-tile-56"></i>
+                            <i class="nc-icon nc-box-2"></i>
                             <p>Order</p>
                         </a>
                     </li>

@@ -9,6 +9,7 @@
                     <h4 class="card-title">Order Table</h4>
                     <a href="{{ route('admin.order.createform') }}"><button type="submit" class="btn">Add
                             Order</button></a>
+                            {{ $order->links('pagination::bootstrap-5') }}
                 </div>
             </div>
             <div class="card-body">
@@ -19,13 +20,13 @@
                         <div class="order-card">
                             <!-- Left Side -->
                             <div class="order-details">
-                                <h3 class="order-id">Order #{{ $o->orders_id }}</h3>
+                                <h3 class="order-id">Order #{{ $order->firstItem() + $loop->index }}</h3>
                                 <p><strong>Name:</strong> {{ $o->name }}</p>
                                 <p><strong>Phone:</strong> {{ $o->phone }}</p>
                                 <p><strong>Address:</strong> {{ $o->address }}</p>
                                 <p><strong>Product:</strong>
                                     @if($o->pro)
-                                        {{ $o->pro->name }} <strong>×{{ $o->amount }}</strong>
+                                        {{ $o->pro->name }} <strong>×1</strong>
                                     @else
                                         Product Not Available
                                     @endif

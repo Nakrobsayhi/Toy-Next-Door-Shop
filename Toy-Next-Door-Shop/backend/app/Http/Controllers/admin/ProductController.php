@@ -10,7 +10,6 @@ use File;
 use Image;
 use Illuminate\Support\Str;
 
-
 class ProductController extends Controller
 {
 
@@ -140,25 +139,35 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
+        $category = $request->input('category'); // This should be the category_id coming from the request
+        $ready = $request->input('ready'); // This should be '1' or '0', depending on what you want to check
 
         $products = Product::where('name', 'LIKE', "%{$query}%")
-            ->paginate(10);
+            ->when($category, function ($queryBuilder) use ($category) {
+                return $queryBuilder->where('category_id', $category); // Filter by category_id
+            })
+            ->when($ready, function ($queryBuilder) use ($ready) {
+                return $queryBuilder->where('ready', $ready); // Filter by ready status
+            })
+            ->with('category') // Eager load the category relationship
+            ->paginate(100);
 
         return view('frontend.shop', ['products' => $products]);
     }
 
+
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        return view('product.show', compact('product'));
+        return view('frontend.show', compact('product'));
     }
-    
+
     public function cart($id)
     {
         $product = Product::findOrFail($id);
         return view('frontend.cart', compact('product'));
     }
-    
+
 
 }
 

@@ -20,9 +20,9 @@ class isAdmin
         $auth = Auth::user();
 
         if ($auth->IsAdmin == 1) {
-            return $next($request); 
+            return $next($request);
         } else {
-            return redirect('http://127.0.0.1:3000/frontend/index.html');
+            return redirect('/');
 
         }
     }

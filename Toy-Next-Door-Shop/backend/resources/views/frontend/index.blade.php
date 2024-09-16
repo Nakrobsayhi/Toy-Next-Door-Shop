@@ -74,7 +74,7 @@
 
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
   <div class="container">
-    <a href="shop.html?category=Model kit">
+    <a href="{{ route('shop', ['category' => '1']) }}">
       <p>Model kit &#129122;</p>
     </a><br>
     <div id="product-list">
@@ -84,7 +84,7 @@
 
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
   <div class="container">
-    <a href="shop.html?category=Figurine">
+    <a href="{{ route('shop', ['category' => '2']) }}">
       <p>Figurine &#129122;</p>
     </a><br>
     <div id="product-list2">
@@ -140,8 +140,7 @@
             <div class="swiper-slide text-center d-flex justify-content-center">
               <div class="review-item col-md-10">
                 <i class="icon icon-review"></i>
-                <blockquote>“A blog is a digital publication that can complement a website or exist independently. A
-                  blog may include articles, short posts, listicles, infographics, videos, and other digital content.”
+                <blockquote style="font-size: 26px;">“ชอบค่า ส่งไวมากๆ คุยถามตอบได้ตลอด ส่งมาเรียบร้อยดีไม่มีปัญหาทั้งกับตัวกล่องและโมเดล ราคาถูกกว่าร้านอื่นมากๆ ถึงจะเป็นพรีออเดอร์เหมือนกัน เพราะมีโค้ดส่วนลดฝนชอปปี้"
                 </blockquote>
                 <div class="rating">
                   <svg class="star star-fill">
@@ -161,7 +160,7 @@
                   </svg>
                 </div>
                 <div class="author-detail">
-                  <div class="name text-dark text-uppercase pt-2">Jennie Rose</div>
+                  <div class="name text-dark text-uppercase pt-2">savepatthawee</div>
                 </div>
               </div>
             </div>
@@ -176,12 +175,12 @@
     </div>
   </div>
   <div class="swiper-pagination"></div>
-</section>
+</section><br><br><br><br><br>
 
 
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
   <div class="container">
-    <a href="shop.html?category=Action figure">
+    <a href="{{ route('shop', ['category' => '3']) }}">
       <p>Action figure &#129122;</p>
     </a><br>
     <div id="product-list3">
@@ -191,7 +190,7 @@
 
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
   <div class="container">
-    <a href="shop.html?category=Tool">
+    <a href="{{ route('shop', ['category' => '4']) }}">
       <p>Tool &#129122;</p>
     </a><br>
     <div id="product-list4">

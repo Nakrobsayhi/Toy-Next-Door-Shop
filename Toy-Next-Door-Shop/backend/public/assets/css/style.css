@@ -1,7 +1,7 @@
 /*
 Theme Name: Ministore
 
-    
+
 /*--------------------------------------------------------------
 /** 1. VARIABLES
 --------------------------------------------------------------*/
@@ -1367,24 +1367,23 @@ figure.instagram-item img.insta-image {
   box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
-.styled-form input[id="member_id"] {
-  width: 20%;
-}
-
-.styled-form input[id="name"] {
-  width: 60%;
-}
-
-
 /* Add some spacing between form elements */
 .styled-form br {
   display: none; /* Hide <br> elements */
 }
 
-/* Add spacing between input fields */
-.styled-form input[type="text"] + input[type="text"] {
-  margin-top: 10px; /* Add margin to the top of the next input field */
-}
+.styled-form input[name="member_id"] {
+    width: 15%;
+    margin-top: 10px; /* Add margin to the top of the next input field */
+  }
+
+  .styled-form input[name="name"] {
+    width: 95%;
+  }
+
+  .styled-form input[name="phone"] {
+    width: 96%;
+  }
 
 /* Shoppping */
 #shop-listing .product-item {
@@ -1398,4 +1397,25 @@ figure.instagram-item img.insta-image {
 
 #shop-listing h6 {
   margin: 5px 0;
+}
+
+.styled-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Adjust gap between rows if needed */
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 20px); /* Adjust width and spacing */
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    color: red;
+    font-size: 0.9em;
+}
+
+.full-width {
+    flex: 1 1 100%; /* Full width for the bottom row */
 }
