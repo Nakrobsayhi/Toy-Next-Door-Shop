@@ -37,12 +37,12 @@ async function fetchAndDisplayProducts() {
               const productLink = document.createElement("a");
               // Assuming `product` is an object containing the `product_id`
               productLink.href = `http://localhost:8000/product/${product.product_id}`;
-              
+
               productLink.addEventListener("click", () => {
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
                 // The link will naturally redirect to the new URL
               });
-              
+
 
                 const productImage = document.createElement("img");
                 productImage.src = `http://localhost:8000/backend/product/${product.image}`;
@@ -55,8 +55,9 @@ async function fetchAndDisplayProducts() {
             // Product Name
             const productName = document.createElement("h4");
             productName.textContent = product.name;
+            productName.style.marginTop = "10px";
             productName.style.fontSize = "16px";
-            productName.style.fontWeight = "normal";
+            productName.style.fontWeight = "400";
             productName.style.width = "233px";
             productContainer.appendChild(productName);
 
@@ -65,7 +66,7 @@ async function fetchAndDisplayProducts() {
             productPrice.textContent = `฿ ${product.price.toLocaleString()}`;
             productPrice.style.textAlign = "left";
             productPrice.style.fontSize = "18px";
-            productPrice.style.fontWeight = "normal";
+            productPrice.style.fontWeight = "500";
             productContainer.appendChild(productPrice);
 
             // Determine which list to append based on category and limit to 4 items

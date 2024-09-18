@@ -59,7 +59,7 @@
 
           <div class="contact100-form-checkbox">
             <p style="display: inline;">Don't have an account?</p>
-            <a href="{{ route('register') }}" class="txt1" style="display: inline;">Sign up</a>
+            <a href="https://www.facebook.com/ToyNextDoorShop" class="txt1" style="display: inline;">Sign up</a>
           </div>
 
 
@@ -69,11 +69,11 @@
             </button>
           </div>
 
-          <div class="text-center p-t-90">
+          <!-- <div class="text-center p-t-90">
             <a class="txt1" href="{{ route('password.request') }}">
               Forgot Password?
             </a>
-          </div>
+          </div> -->
         </form>
       </div>
     </div>

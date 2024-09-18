@@ -15,7 +15,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Member</p>
-                                <p class="card-title"> {{ $m->count() }}
+                                <p class="card-title"> {{ $u->count() }}
                                 <p>
                             </div>
                         </div>

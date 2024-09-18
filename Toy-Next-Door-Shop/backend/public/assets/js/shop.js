@@ -28,7 +28,7 @@ async function fetchAndDisplayProducts(category = "all", ready = "all") {
               const productLink = document.createElement("a");
               // Assuming `product` is an object containing the `product_id`
               productLink.href = `http://localhost:8000/product/${product.product_id}`;
-              
+
               productLink.addEventListener("click", () => {
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
                 // The link will naturally redirect to the new URL
@@ -46,7 +46,7 @@ async function fetchAndDisplayProducts(category = "all", ready = "all") {
         const productName = document.createElement("h4");
         productName.textContent = product.name;
         productName.style.fontSize = "16px";
-        productName.style.fontWeight = "normal";
+        productName.style.fontWeight = "400";
         productName.style.width = "210px";
         productContainer.appendChild(productName);
 

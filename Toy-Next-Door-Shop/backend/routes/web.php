@@ -52,6 +52,12 @@ Route::get('cart', function () {
 
 Route::get('/cart/{id}', [ProductController::class, 'cart'])->name('cart');
 
+Route::get('track', function () {
+    return view('frontend.track');
+})->name('track');
+
+Route::get('/track', [OrderController::class, 'track'])->name('track');
+
 Route::get('contact', function () {
     return view('frontend.contact');
 })->name('contact');
@@ -83,6 +89,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(f
         Route::get('index', [UserController::class, 'index'])->name('index');
         Route::get('createform', [UserController::class, 'createform'])->name('createform');
         Route::post('insert', [UserController::class, 'insert'])->name('insert');
+        Route::get('delete/{id}', [UserController::class, 'delete'])->name('delete');
     });
 
     Route::prefix('category')->name('category.')->group(function () {
@@ -112,4 +119,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(f
         Route::post('update/{id}', [OrderController::class, 'update'])->name('update');
         Route::get('delete/{id}', [OrderController::class, 'delete'])->name('delete');
     });
+
+
 });

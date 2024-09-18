@@ -71,27 +71,34 @@ class OrderController extends Controller
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'phone' => 'required|string|max:20',
-                'address' => 'required|string',
-                'member_id' => 'required|exists:members,member_id'
             ]);
+
+            $fullAddress = $request->street_address .  $request->city  .  $request->province . $request->postal_code;
 
             // Create a new order instance
             $order = new Order();
             $order->name = $validated['name'];
             $order->phone = $validated['phone'];
-            $order->address = $validated['address'];
+            $order->address = $fullAddress;
             $order->product_id = $request->product_id;
-            $order->member_id = $request->member_id;
+            $order->amount = $request->amount;
+            $order->price = $request->price;
             $order->save();
 
             // Return a JSON response
             return response()->json(['success' => true], 201);
         } catch (\Exception $e) {
             // Log the error
-            \Log::error('Order creation failed: '.$e->getMessage());
+            \Log::error('Order creation failed: ' . $e->getMessage());
 
             // Return a JSON error response
             return response()->json(['error' => 'Failed to save the order.'], 500);
         }
+    }
+
+    public function track()
+    {
+        $order = Order::orderBy('orders_id', direction: 'desc')->Paginate(10);
+        return view('frontend/track', compact('order'));
     }
 }

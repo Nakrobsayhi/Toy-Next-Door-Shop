@@ -110,6 +110,10 @@ a:hover {
   background-color: #ffffff;
 }
 
+.bg-search {
+    background-color: #f5f7f5;
+}
+
 /* - Section Padding
 --------------------------------------------------------------*/
 .padding-xsmall {
@@ -135,6 +139,10 @@ a:hover {
 .padding-xlarge {
   padding-top: 9.5em;
   padding-bottom: 9.5em;
+}
+
+.padding-mega {
+    padding-top: 32em;
 }
 
 /* no padding */
@@ -700,15 +708,13 @@ h3.cart-title {
 }
 
 .header-bottom {
-  padding: 5px;
+  padding: 10px;
   margin-top: 0;
 }
 
 .header-divider {
-  height: 50px;
+  height: 45px;
 }
-
-
 
 /*------------ Offcanvas -------------- */
 #header-nav .navbar-toggler:focus {
@@ -1372,19 +1378,6 @@ figure.instagram-item img.insta-image {
   display: none; /* Hide <br> elements */
 }
 
-.styled-form input[name="member_id"] {
-    width: 15%;
-    margin-top: 10px; /* Add margin to the top of the next input field */
-  }
-
-  .styled-form input[name="name"] {
-    width: 95%;
-  }
-
-  .styled-form input[name="phone"] {
-    width: 96%;
-  }
-
 /* Shoppping */
 #shop-listing .product-item {
   width: 230px;
@@ -1397,12 +1390,6 @@ figure.instagram-item img.insta-image {
 
 #shop-listing h6 {
   margin: 5px 0;
-}
-
-.styled-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px; /* Adjust gap between rows if needed */
 }
 
 .form-group {
@@ -1419,3 +1406,18 @@ figure.instagram-item img.insta-image {
 .full-width {
     flex: 1 1 100%; /* Full width for the bottom row */
 }
+
+.styled-hr {
+    border: 0;
+    height: 1px;
+    background: greywwww; /* Change to your desired color */
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%; /* Adjust width as needed */
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+  }

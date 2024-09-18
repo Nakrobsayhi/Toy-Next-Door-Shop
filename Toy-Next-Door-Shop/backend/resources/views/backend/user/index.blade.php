@@ -36,29 +36,47 @@
                 </div> -->
 
                 <div class="card-header">
-                    <h4 class="card-title"> Member Table</h4>
+                    <h4 class="card-title"> User Table</h4>
                     <a href="{{ route('admin.user.createform') }}"><button type="submit" class="btn">Add
-                            Member</button></a>
+                            User</button></a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
                                 <th>#</th>
+                                <th>Username</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Role</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
 
-                                @foreach ($members as $member)
+                                @foreach ($u as $member)
 
-                                    <tr>
-                                        <td>{{ $member->member_id }}</td>
-                                        <td>{{ $member->name }}</td>
-                                        <td>{{ $member->email }}</td>
-                                        <td>{{ $member->phone }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $member->id }}</td>
+                                    <td>{{ $member->username }}</td>
+                                    <td>{{ $member->name }}</td>
+                                    <td>{{ $member->email }}</td>
+                                    <td>{{ $member->phone }}</td>
+                                    <td>
+                                        @if ($member->IsAdmin == 1)
+                                        Admin
+                                        @elseif ($member->IsAdmin == 0)
+                                        User
+                                        @else
+                                        Unknown
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('admin/user/delete/' . $member->id) }}">
+                                            <button class="btn btn-danger btn-icon btn-sm" data-toggle="tooltip" title="Trash">
+                                                <i class="fa fa-times" aria-hidden="true"></i></button></a>
+                                    </td>
+                                </tr>
 
                                 @endforeach
 

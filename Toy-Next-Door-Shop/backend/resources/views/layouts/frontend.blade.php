@@ -19,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="{{ asset('assets/js V/modernizr.js') }}"></script>
 </head>
 
@@ -130,35 +130,40 @@
                 <div class="col-10 d-flex justify-content-center align-items-center">
                     <form action="{{ route('shop') }}" method="GET">
                         <input class="search-input" id="search" type="text" name="query"
-                            placeholder="Search for product by brands, model..." required>
+                        placeholder="🔍 Search for products by brand, model, or other details..."   required>
                     </form>
                 </div>
 
-                <!-- Right Side (Login / Cart / Logout) -->
                 <div class="col-1 d-flex justify-content-end">
-                    @if(Auth::check())
-                    <!-- Check if the user is an admin -->
-                    @if(Auth::user()->IsAdmin == 1)
-                    <!-- Dashboard Button for Admins with Icon Only -->
-                    <a href="{{ route('dashboard') }}" class="btn btn-primary d-flex align-items-center" style="margin-right: 10px;">
-                        <i class="fa fa-tachometer-alt" aria-hidden="true"></i>
-                    </a>
-                    @endif
+    @if(Auth::check())
+        <!-- Check if the user is an admin -->
+        @if(Auth::user()->IsAdmin == 1)
+            <!-- Dashboard Button for Admins with Icon Only -->
+            <a href="{{ route('dashboard') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
+                <i class="fa fa-tachometer-alt" aria-hidden="true"></i>
+            </a>
+        @endif
 
-                    <!-- Logout Button with User Icon Only -->
-                    <form action="{{ route('logout') }}" method="POST" style="margin-left: 10px;">
-                        @csrf
-                        <button type="submit" class="btn btn-dark d-flex align-items-center">
-                            <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                    @else
-                    <!-- Login Button with Icon Only -->
-                    <!-- <a href="{{ route('login') }}" class="btn btn-dark d-flex align-items-center">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </a> -->
-                    @endif
-                </div>
+        <!-- Track Order Button -->
+        <a href="{{ route('track') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
+            <i class="fa fa-truck" aria-hidden="true"></i>
+        </a>
+
+        <!-- Logout Button with User Icon Only -->
+        <form action="{{ route('logout') }}" method="POST" style="margin-left: 10px;">
+            @csrf
+            <button type="submit" class="btn d-flex align-items-center">
+                <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+            </button>
+        </form>
+    @else
+        <!-- Login Button with Icon Only -->
+        <a href="{{ route('login') }}" class="btn d-flex align-items-center">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+    @endif
+</div>
+
 
             </div>
         </div>
@@ -240,7 +245,7 @@
                             <div class="footer-menu">
                                 <img src="{{ asset('assets/images/main-logo.png') }}" alt="logo" width="50%">
                                 <p>The shop sells and accepts pre-order Gunpla and products.</p>
-                                <div class="social-links">
+                                <!-- <div class="social-links">
                                     <ul class="d-flex list-unstyled">
                                         <li>
                                             <a href="#">
@@ -250,7 +255,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 pb-3">

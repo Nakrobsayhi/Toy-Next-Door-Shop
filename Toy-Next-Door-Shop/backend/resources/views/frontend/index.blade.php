@@ -6,71 +6,75 @@
   style="background-image: url('assets/images/banner-image.jpg');">
   <div class="row d-flex flex-wrap align-items-center">
     <div class="col-md-6 col-sm-12">
-      <div class="text-content offset-4 padding-medium">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div class="text-content offset-4 padding-mega">
       </div>
     </div>
   </div>
 </section>
 
-<section id="company-services" class="padding-large">
+<section id="company-services" class="padding-large bg-gradient">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-6 pb-3">
-        <div class="icon-box d-flex">
-          <div class="icon-box-icon pe-3 pb-3">
-            <svg class="cart-outline">
+    <div class="row text-center">
+      <!-- Free Delivery -->
+      <div class="col-lg-3 col-md-6 pb-4">
+        <div class="icon-box d-flex flex-column align-items-center hover-shadow">
+          <div class="icon-box-icon mb-3">
+            <svg class="icon" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <use xlink:href="#cart-outline" />
             </svg>
           </div>
           <div class="icon-box-content">
-            <h3 class="card-title text-uppercase text-dark">Free delivery</h3>
-            <p>Enjoy free shipping on all orders, straight to your doorstep.</p>
+            <h3 class="card-title text-dark mb-2">Free Delivery</h3>
+            <p class="text-muted">Enjoy complimentary delivery on all orders, straight to your doorstep. No extra charges!</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 pb-3">
-        <div class="icon-box d-flex">
-          <div class="icon-box-icon pe-3 pb-3">
-            <svg class="quality">
+      <!-- Quality Guarantee -->
+      <div class="col-lg-3 col-md-6 pb-4">
+        <div class="icon-box d-flex flex-column align-items-center hover-shadow">
+          <div class="icon-box-icon mb-3">
+            <svg class="icon" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <use xlink:href="#quality" />
             </svg>
           </div>
           <div class="icon-box-content">
-            <h3 class="card-title text-uppercase text-dark">Quality guarantee</h3>
-            <p>Shop confidently with our commitment to top-quality products.</p>
+            <h3 class="card-title text-dark mb-2">Quality Guarantee</h3>
+            <p class="text-muted">Shop with confidence. Our products meet the highest standards of quality and excellence.</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 pb-3">
-        <div class="icon-box d-flex">
-          <div class="icon-box-icon pe-3 pb-3">
-            <svg class="price-tag">
+      <!-- Daily Offers -->
+      <div class="col-lg-3 col-md-6 pb-4">
+        <div class="icon-box d-flex flex-column align-items-center hover-shadow">
+          <div class="icon-box-icon mb-3">
+            <svg class="icon" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <use xlink:href="#price-tag" />
             </svg>
           </div>
           <div class="icon-box-content">
-            <h3 class="card-title text-uppercase text-dark">Daily offers</h3>
-            <p>Discover new deals and discounts every day.</p>
+            <h3 class="card-title text-dark mb-2">Daily Offers</h3>
+            <p class="text-muted">Unlock exclusive deals and discounts every day. Save more on the best products!</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 pb-3">
-        <div class="icon-box d-flex">
-          <div class="icon-box-icon pe-3 pb-3">
-            <svg class="shield-plus">
+      <!-- 100% Secure Payment -->
+      <div class="col-lg-3 col-md-6 pb-4">
+        <div class="icon-box d-flex flex-column align-items-center hover-shadow">
+          <div class="icon-box-icon mb-3">
+            <svg class="icon" width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <use xlink:href="#shield-plus" />
             </svg>
           </div>
           <div class="icon-box-content">
-            <h3 class="card-title text-uppercase text-dark">100% secure payment</h3>
-            <p>Your transactions are safe with our secure payment system.</p>
+            <h3 class="card-title text-dark mb-2">100% Secure Payment</h3>
+            <p class="text-muted">Your payment information is protected with our state-of-the-art security systems. Shop safely!</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
   <div class="container">
@@ -197,6 +201,8 @@
     </div>
   </div>
 </section>
+
+<br><br>
 
 <script src="{{ asset('assets/js/app.js') }}"></script>
 

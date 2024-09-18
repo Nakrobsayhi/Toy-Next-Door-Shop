@@ -8,7 +8,7 @@
 
             <div class="col-lg-8">
                 <div class="product-box p-5"
-                    style="border: 1px solid #f2f2f2; border-radius: 4px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); width: 1300px; height: auto;">
+                    style="width: 1300px; height: auto;">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
@@ -27,26 +27,42 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h6 style="font-size: 1.2em;">Product Details</h6><br>
-                                        <span style="font-size: 1.2em;">{{ $product->amount }} In stock</span><br>
-                                        <span style="font-size: 1.2em;">Category </span><span
-                                            style="padding: 100px; font-size: 1.2em;">{{ $product->cat->name}}</span><br>
-                                        <span style="font-size: 1.2em;">SKU </span><span
-                                            style="padding: 135px; font-size: 1.2em;">{{ $product->product_id}}</span><br>
-                                        <span style="font-size: 1.2em;">Ready for ship </span><span
-                                            style="padding: 60px; font-size: 1.2em;">{{ $product->ready}}</span>
+                                        <h6 style="font-size: 16px; font-weight: normal; color: grey;">Product Details</h6><br>
+                                        <span style="font-size: 16px; font-weight: normal; color: grey;">{{ $product->amount }} In stock</span><br>
+                                        <span style="font-size: 16px; font-weight: normal; color: grey;">Category </span><span
+                                            style="padding: 100px; font-size: 1.2em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">{{ $product->cat->name}}</span><br>
+                                        <span style="font-size: 16px; font-weight: normal; color: grey;">SKU </span><span
+                                            style="padding: 135px; font-size: 1.2em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">{{ $product->product_id}}</span><br>
+                                        <span style="font-size: 16px; font-weight: normal; color: grey;">Ready for ship </span><span
+                                            style="padding: 60px; font-size: 1.2em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">{{ $product->ready}}</span>
                                         <br><br>
                                     </div>
                                 </div>
                             </div>
-                            <a href="http://localhost:8000/cart/{{ $product->product_id }}">
-                                <div class="qty-button d-flex flex-wrap pt-3">
-                                    <button id="buyNowBtn" type="button"
-                                        class="btn btn-primary btn-medium text-uppercase me-3 mt-3"
-                                        style="font-size: 1.2em;">buy
-                                        now</button>
-                                </div>
-                            </a>
+
+                            <div class="qty-button d-flex flex-wrap pt-3">
+                                <button id="buyNowBtn" type="button"
+                                    class="btn btn-dark btn-medium text-uppercase me-3 mt-3"
+                                    style="font-size: 16px;">Buy Now</button>
+                                <br>
+                                <p id="loginWarning" class="text-danger mt-2" style="display: none;">
+                                    You need to <a href="{{ route('login') }}">log in</a> to place an order.
+                                </p>
+                            </div>
+
+                            <script>
+                                document.getElementById('buyNowBtn').addEventListener('click', function() {
+                                    // Check if the user is logged in using a backend variable
+                                    @if(Auth::check())
+                                    // If logged in, redirect to cart
+                                    window.location.href = "{{ url('/cart/' . $product->product_id) }}";
+                                    @else
+                                    // If not logged in, show the warning message
+                                    document.getElementById('loginWarning').style.display = 'block';
+                                    @endif
+                                });
+                            </script>
+
                             <hr>
                         </div>
                     </div>
@@ -55,7 +71,6 @@
         </div>
     </div>
 </section>
-
 
 <section class="product-info-tabs">
     <div class="container">
@@ -73,7 +88,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active border-top border-bottom padding-small" id="nav-home"
-                        role="tabpanel" aria-labelledby="nav-home-tab" style="font-size: 16px; font-weight: 400;">
+                        role="tabpanel" aria-labelledby="nav-home-tab" style="font-size: 1.2em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">
                         {!! nl2br(e($product->description)) !!}
                     </div>
                     <div class="tab-pane fade border-top border-bottom padding-small" id="nav-review" role="tabpanel"
@@ -155,7 +170,8 @@
             </div>
         </div>
     </div>
-</section><br><br>
+</section>
 
+<br><br><br>
 
 @endsection

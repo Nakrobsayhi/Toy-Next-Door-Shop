@@ -50,8 +50,9 @@ Coded by www.creative-tim.com
                 </a>
             </div>
             <div class="sidebar-wrapper">
-                <!-- li > a-->
                 <ul class="nav">
+                    <!-- Check if the user is an admin -->
+                    @if(auth()->check() && auth()->user()->IsAdmin == 1)
                     <li class="{{ Request::is('dashboard') ? 'active' : ''}}">
                         <a href="{{ url('/dashboard') }}">
                             <i class="nc-icon nc-bank"></i>
@@ -61,7 +62,7 @@ Coded by www.creative-tim.com
                     <li class="{{ Request::is('admin/user/index') ? 'active' : ''}}">
                         <a href="{{ route('admin.user.index') }}">
                             <i class="nc-icon nc-single-02"></i>
-                            <p>Member</p>
+                            <p>User</p>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/category/index') ? 'active' : ''}}">
@@ -82,8 +83,10 @@ Coded by www.creative-tim.com
                             <p>Order</p>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </div>
+
         </div>
         <div class="main-panel">
             <!-- Navbar -->
@@ -140,7 +143,7 @@ Coded by www.creative-tim.com
                         <div class="credits ml-auto">
                             <span class="copyright">
                                 © <script>
-                                document.write(new Date().getFullYear())
+                                    document.write(new Date().getFullYear())
                                 </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
                             </span>
                         </div>
@@ -156,20 +159,20 @@ Coded by www.creative-tim.com
     <script src="{{ asset('backend/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var coll = document.getElementsByClassName("collapsible");
-        for (var i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            });
-        }
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        });
     </script>
 
     @stack('scripts')
