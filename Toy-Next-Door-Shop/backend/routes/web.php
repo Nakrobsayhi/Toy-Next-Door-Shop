@@ -71,8 +71,7 @@ Route::get('/dashboard', function () {
     $u = User::all();
     $c = Category::all();
     $p = Product::all();
-    $m = Member::all();
-    return view('/dashboard', compact('u', 'c', 'p','m'));
+    return view('/dashboard', compact('u', 'c', 'p'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

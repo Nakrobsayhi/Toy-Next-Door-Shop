@@ -2,15 +2,9 @@
 
 @section('content')
 
-<section id="yearly-sale" class="bg-light-blue padding-medium"
-    style="background-image: url('https://da.lnwfile.com/_/da/_raw/0k/7j/ao.png');">
-    <div class="row d-flex flex-wrap align-items-center">
-        <div class="col-md-6 col-sm-12">
-            <div class="text-content offset-4 padding-medium">
-            </div>
-        </div>
-    </div>
-</section>
+<br><br><br><br>
+
+<div class="banner-shop"></div>
 
 <div class="shopify-grid padding-large">
     <div class="container">

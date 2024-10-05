@@ -30,17 +30,46 @@ class OrderController extends Controller
 
     public function insert(Request $request)
     {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'street_address' => 'required|string|max:255',
+            'city' => 'required|string|max:100',
+            'province' => 'required|string|max:100',
+            'postal_code' => 'required|string|max:20',
+            'price' => 'required|numeric',
+            'product_id' => 'required|integer', // Ensure product_id is present and is an integer
+            'amount' => 'required|integer',
+            'slip' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048' // Adjust as needed for file types and size
+        ]);
+
+        // Build the full address
+        $fullAddress = $request->street_address . ' ' . $request->city . ' ' . $request->province . ' ' . $request->postal_code;
+
+        // Create and save the order
         $order = new Order();
         $order->name = $request->name;
         $order->phone = $request->phone;
-        $order->address = $request->address;
-        $order->product_id = $request->product_id;
+        $order->address = $fullAddress;
+        $order->price = $request->price;
+        $order->product_id = $request->product_id; // Should now be set
         $order->amount = $request->amount;
-        $order->status = $request->status;
+
+        // Handle the file upload
+        if ($request->hasFile('slip')) {
+            $file = $request->file('slip');
+            $fileName = time() . '_' . $file->getClientOriginalName(); // Create a unique file name
+            $file->move(public_path('backend/product'), $fileName); // Save to the specified directory
+            $order->slip = $fileName; // Store the file name in the database
+        }
+
+        // Save the order
         $order->save();
         alert()->success('Successfully Saved', 'บันทึกสำเร็จ');
-        return redirect('admin/order/index');
+        return redirect('/');
     }
+
 
     public function update(Request $request, $orders_id)
     {
@@ -73,7 +102,7 @@ class OrderController extends Controller
                 'phone' => 'required|string|max:20',
             ]);
 
-            $fullAddress = $request->street_address .  $request->city  .  $request->province . $request->postal_code;
+            $fullAddress = $request->street_address . ' ' . $request->city . ' ' . $request->province . ' ' . $request->postal_code;
 
             // Create a new order instance
             $order = new Order();

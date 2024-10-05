@@ -5,10 +5,26 @@
 <section id="selling-product" class="single-product padding-large">
     <div class="container">
         <div class="row">
-
             <div class="col-lg-8">
                 <div class="product-box p-5"
                     style="width: 1300px; height: auto;">
+
+                    <nav class="breadcrumb">
+                        <a href="/">Home</a>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="#1B1B1B" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <a href="/shop">Shop</a>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="#1B1B1B" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <a href="/shop">{{ $product->cat->name}}</a>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="#1B1B1B" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span>{{ $product->name }}</span>
+                    </nav><br>
+
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
@@ -24,9 +40,9 @@
                                     </div>
                                 </div><br>
                                 <span style="font-size: 1.6em; font-weight: 500;">฿ {{ $product->price }}</span>
-                                <hr>
                                 <div class="row">
                                     <div class="col-md-8">
+                                        <br>
                                         <h6 style="font-size: 16px; font-weight: normal; color: grey;">Product Details</h6><br>
                                         <span style="font-size: 16px; font-weight: normal; color: grey;">{{ $product->amount }} In stock</span><br>
                                         <span style="font-size: 16px; font-weight: normal; color: grey;">Category </span><span
@@ -88,7 +104,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active border-top border-bottom padding-small" id="nav-home"
-                        role="tabpanel" aria-labelledby="nav-home-tab" style="font-size: 1.2em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">
+                        role="tabpanel" aria-labelledby="nav-home-tab" style="font-size: 1.1em; font-weight: 500; color:rgb(90 90 90/var(--tw-text-opacity));">
                         {!! nl2br(e($product->description)) !!}
                     </div>
                     <div class="tab-pane fade border-top border-bottom padding-small" id="nav-review" role="tabpanel"

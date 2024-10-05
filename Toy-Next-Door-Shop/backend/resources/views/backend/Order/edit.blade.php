@@ -76,13 +76,13 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="card card-user">
                 <div class="image">x
                     <img src="{{ asset('backend/product/resize/no_img.png') }}" id="previewImage" alt="...">
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

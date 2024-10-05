@@ -115,123 +115,74 @@
         </symbol>
     </svg>
 
-    <!-- Header 1: Logo and Search Bar -->
-    <header class="site-header bg-white header-top">
-        <div class="container-fluid">
-            <div class="row w-100 align-items-center">
-                <!-- Logo Section -->
-                <div class="col-1 d-flex">
-                    <a href="{{ route('main') }}">
-                        <img src="{{ asset('assets/images/main-logo.png') }}" width="120px">
-                    </a>
-                </div>
-
-                <!-- Search Bar Section -->
-                <div class="col-10 d-flex justify-content-center align-items-center">
-                    <form action="{{ route('shop') }}" method="GET">
-                        <input class="search-input" id="search" type="text" name="query"
-                        placeholder="🔍 Search for products by brand, model, or other details..."   required>
-                    </form>
-                </div>
-
-                <div class="col-1 d-flex justify-content-end">
-    @if(Auth::check())
-        <!-- Check if the user is an admin -->
-        @if(Auth::user()->IsAdmin == 1)
-            <!-- Dashboard Button for Admins with Icon Only -->
-            <a href="{{ route('dashboard') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
-                <i class="fa fa-tachometer-alt" aria-hidden="true"></i>
+    <header>
+        <div class="top-layer">
+            <a href="{{ route('main') }}">
+                <img src="{{ asset('assets/images/main-logo.png') }}" width="120px">
             </a>
-        @endif
+            <form action="{{ route('shop') }}" method="GET">
+                <input class="search-input" id="search" type="text" name="query"
+                    placeholder="🔍 Search for products by brand, model, or other details..." required>
+            </form>
 
-        <!-- Track Order Button -->
-        <a href="{{ route('track') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
-            <i class="fa fa-truck" aria-hidden="true"></i>
-        </a>
+            <div class="auth-actions">
+                @if(Auth::check())
+                @if(Auth::user()->IsAdmin == 1)
+                <a href="{{ route('dashboard') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
+                    <i class="fa fa-tachometer-alt" aria-hidden="true"></i>
+                </a>
+                @endif
 
-        <!-- Logout Button with User Icon Only -->
-        <form action="{{ route('logout') }}" method="POST" style="margin-left: 10px;">
-            @csrf
-            <button type="submit" class="btn d-flex align-items-center">
-                <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-            </button>
-        </form>
-    @else
-        <!-- Login Button with Icon Only -->
-        <a href="{{ route('login') }}" class="btn d-flex align-items-center">
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </a>
-    @endif
-</div>
-
-
+                <a href="{{ route('track') }}" class="btn d-flex align-items-center" style="margin-right: 10px;">
+                    <i class="fa fa-truck" aria-hidden="true"></i>
+                </a>
+                <form action="{{ route('logout') }}" method="POST" style="margin-left: 10px;">
+                    @csrf
+                    <button type="submit" class="btn d-flex align-items-center">
+                        <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
+                    </button>
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="btn d-flex align-items-center">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                @endif
             </div>
         </div>
-    </header>
 
+        <hr>
 
-    <!-- Line Separator -->
-    <div class="header-divider"></div>
+        <div class="bottom-layer">
+            <ul class="category-list">
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop') }}">Shop all</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['ready' => 'yes']) }}">Ready to ship</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => '1']) }}">Model kit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => '2']) }}">Action
+                        figure</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => '3']) }}">Figurine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => '4']) }}">Gacha box</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('shop', ['category' => '5']) }}">Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-4" href="{{ route('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
 
-    <!-- Header 2: Navigation Links -->
-    <header class="site-header header-bottom">
-        <nav id="header-nav" class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="row w-100 justify-content-center">
-                    <div class="col">
-                        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                            <svg class="navbar-icon">
-                                <use xlink:href="#navbar-icon"></use>
-                            </svg>
-                        </button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-                            <div class="offcanvas-header px-4 pb-0">
-                                <a class="navbar-brand" href="{{ route('main') }}">
-                                    <img src="{{ asset('assets/images/main-logo.png') }}" class="logo">
-                                </a>
-                                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-                                    data-bs-target="#bdNavbar"></button>
-                            </div>
-
-                            <div class="offcanvas-body d-flex justify-content-center">
-                                <ul id="navbar" class="navbar-nav align-items-center">
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop') }}">Shop all</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['ready' => 'yes']) }}">Ready to ship</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['category' => '1']) }}">Model kit</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['category' => '2']) }}">Action
-                                            figure</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['category' => '3']) }}">Figurine</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['category' => '4']) }}">Gacha box</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('shop', ['category' => '5']) }}">Tool</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link me-4" href="{{ route('contact') }}">Contact</a>
-                                    </li>
-                                    <!-- <li class="nav-item">
-                    <a class="nav-link me-4" href="">About us</a>
-                  </li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <hr style="margin: -10px;">
+        <hr class="endnav">
     </header>
 
     @yield('content')

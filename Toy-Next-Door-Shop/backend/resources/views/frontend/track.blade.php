@@ -2,6 +2,8 @@
 
 @section('content')
 
+<br><br><br><br>
+
 <style>
     .order-container {
         display: flex;
@@ -154,7 +156,5 @@
         </div>
     </div>
 </section><br><br>
-
-<script src="{{ asset('assets/js/checkout.js') }}"></script>
 
 @endsection
